@@ -1,0 +1,414 @@
+================================================================================
+                    WATER & ELECTRICITY BILLING SYSTEM
+                          PROJECT SUMMARY
+================================================================================
+
+PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+A full-stack web application for managing water and electricity billing for a 
+village community. The system allows engineers to enter meter readings via 
+mobile devices and administrators to view billing summaries and generate reports.
+
+LIVE DEPLOYMENT
+--------------------------------------------------------------------------------
+Frontend (Vercel):  https://water-electricity-calculator.vercel.app
+Backend (Render):   https://water-electricity-calculator.onrender.com
+Database:           MongoDB Atlas (Cloud Database)
+
+================================================================================
+                          SYSTEM ARCHITECTURE
+================================================================================
+
+TECHNOLOGY STACK
+--------------------------------------------------------------------------------
+Frontend:
+  - React 19.2.0 (UI Framework)
+  - Vite 7.2.4 (Build Tool)
+  - Tailwind CSS 4.1.18 (Styling)
+  - Axios 1.13.2 (HTTP Client)
+  - jsPDF 4.0.0 (PDF Generation)
+
+Backend:
+  - Node.js with Express 4.18.2 (Server)
+  - MongoDB Atlas (Cloud Database)
+  - Mongoose 8.0.0 (Database ORM)
+  - CORS (Cross-Origin Resource Sharing)
+
+Deployment:
+  - Frontend: Vercel (Auto-deploy from GitHub)
+  - Backend: Render (Auto-deploy from GitHub)
+  - Version Control: GitHub
+
+================================================================================
+                          APPLICATION FEATURES
+================================================================================
+
+1. ADMIN DASHBOARD (Main View)
+--------------------------------------------------------------------------------
+URL: http://localhost:5173/ (or https://your-vercel-url.com)
+
+Features:
+  ✓ Visual village map showing all houses
+  ✓ Color-coded status (Red = Pending, Green = Billed)
+  ✓ Click any house to enter/edit meter readings
+  ✓ Real-time bill calculation (Thai PEA/PWA rates)
+  ✓ Summary sidebar with:
+    - Total houses count
+    - Billed vs Pending count
+    - Progress percentage
+    - Collection breakdown (Electricity/Water/Total)
+  ✓ PDF export functionality
+  ✓ Month/period selector
+  ✓ Add/Remove billing periods
+
+Components:
+  - App.jsx (Main container)
+  - VillageMap.jsx (House grid display)
+  - HouseBox.jsx (Individual house component)
+  - MeterEntryModal.jsx (Data entry form)
+  - SummarySidebar.jsx (Statistics & controls)
+  - MonthSelector.jsx (Period selection)
+
+2. ENGINEER MODE (Mobile-Optimized)
+--------------------------------------------------------------------------------
+URL: http://localhost:5173/#engineer
+
+Features:
+  ✓ 4-step data entry wizard:
+    1. Select Zone
+    2. Select House
+    3. Enter Readings (Electricity & Water)
+    4. Review & Submit
+  ✓ Photo capture for meter readings
+  ✓ Real-time bill calculation
+  ✓ Progress indicator
+  ✓ Touch-optimized interface
+
+Components:
+  - EngineerApp.jsx (Complete engineer interface)
+
+3. CONFIGURATION PAGE
+--------------------------------------------------------------------------------
+URL: http://localhost:5173/#config
+Access: Password protected (default: 1234)
+
+Features:
+  ✓ Configure electricity rates (3 tiers)
+  ✓ Configure water rates (8 tiers)
+  ✓ Set service fees
+  ✓ Adjust VAT multiplier
+  ✓ Reset to Thai PEA/PWA defaults
+
+Components:
+  - ConfigPage.jsx (Rate configuration interface)
+
+================================================================================
+                          DATA STRUCTURE
+================================================================================
+
+HOUSE DATA MODEL
+--------------------------------------------------------------------------------
+{
+  label: "4001",                    // House number
+  zone: "Zone_W",                   // Zone identifier
+  period: "2026-01",                // Billing period (YYYY-MM)
+  status: "billed",                 // "pending" or "billed"
+  
+  meterData: {
+    elec: {
+      prev: 0,                      // Previous reading
+      curr: 150                     // Current reading
+    },
+    water: {
+      prev: 0,
+      curr: 50
+    }
+  },
+  
+  billData: {
+    elecBill: {
+      units: 150,                   // Units consumed
+      baseCost: 487.26,             // Base electricity cost
+      ftCost: 59.58,                // FT charge
+      serviceFee: 38.22,            // Service fee
+      vat: 40.91,                   // VAT (7%)
+      total: 625.97                 // Total electricity bill
+    },
+    waterBill: {
+      units: 50,
+      baseCost: 510.00,
+      serviceFee: 30.00,
+      vat: 37.80,
+      total: 577.80
+    },
+    total: 1203.77,                 // Grand total
+    hasImages: true                 // Photo availability flag
+  }
+}
+
+BILLING PERIOD MODEL
+--------------------------------------------------------------------------------
+{
+  value: "2026-01",                 // Period identifier
+  label: "January 2026"             // Display name
+}
+
+RATE CONFIGURATION MODEL
+--------------------------------------------------------------------------------
+{
+  electricity: {
+    tiers: [3.2484, 4.2218, 4.4217],  // Rates per kWh by tier
+    ftRate: 0.3972,                    // FT charge per unit
+    serviceFee: 38.22,                 // Fixed service fee
+    vat: 1.07                          // VAT multiplier (7%)
+  },
+  water: {
+    tiers: [10.20, 16.00, 19.00, 21.20, 21.60, 21.65, 21.70, 21.75],
+    serviceFee: 30.00,
+    vat: 1.07
+  }
+}
+
+================================================================================
+                          API ENDPOINTS
+================================================================================
+
+BASE URL: http://localhost:5001/api (Development)
+          https://water-electricity-calculator.onrender.com/api (Production)
+
+HOUSES API
+--------------------------------------------------------------------------------
+GET    /houses/:period              Get all houses for a billing period
+GET    /houses/:period/:label       Get specific house data
+POST   /houses                      Create/update house data
+POST   /houses/bulk                 Bulk update multiple houses
+DELETE /houses/:period/:label       Delete house record
+
+BILLING PERIODS API
+--------------------------------------------------------------------------------
+GET    /periods                     Get all billing periods
+POST   /periods                     Add new billing period
+DELETE /periods/:value              Remove billing period
+POST   /periods/init-defaults       Initialize default periods
+
+RATES API
+--------------------------------------------------------------------------------
+GET    /rates                       Get current billing rates
+POST   /rates                       Update billing rates
+POST   /rates/reset                 Reset to default rates
+
+IMAGES API
+--------------------------------------------------------------------------------
+GET    /images/:houseLabel/:period/:type    Get meter photo
+POST   /images                              Upload meter photo
+DELETE /images/:houseLabel/:period/:type    Delete meter photo
+
+HEALTH CHECK
+--------------------------------------------------------------------------------
+GET    /health                      Server health status
+
+================================================================================
+                          FILE STRUCTURE
+================================================================================
+
+water-electricity-calculator/
+│
+├── src/                           # Frontend source code
+│   ├── components/                # Reusable UI components
+│   │   ├── HouseBox.jsx          # Individual house display
+│   │   ├── MeterEntryModal.jsx   # Data entry modal
+│   │   ├── MonthSelector.jsx     # Period selector
+│   │   ├── SummarySidebar.jsx    # Statistics sidebar
+│   │   └── VillageMap.jsx        # House grid layout
+│   │
+│   ├── pages/                     # Full page components
+│   │   ├── ConfigPage.jsx        # Rate configuration
+│   │   └── EngineerApp.jsx       # Engineer mobile interface
+│   │
+│   ├── services/                  # API integration
+│   │   └── api.js                # Axios API client
+│   │
+│   ├── utils/                     # Utility functions
+│   │   └── billingCalculator.js  # Bill calculation logic
+│   │
+│   ├── data/                      # Static data
+│   │   └── villageMap.json       # House layout configuration
+│   │
+│   ├── App.jsx                    # Main application component
+│   ├── main.jsx                   # React entry point
+│   └── index.css                  # Global styles
+│
+├── server/                        # Backend source code
+│   ├── models/                    # MongoDB schemas
+│   │   ├── House.js              # House data model
+│   │   ├── BillingPeriod.js      # Period model
+│   │   ├── Rate.js               # Rate configuration model
+│   │   └── Image.js              # Image storage model
+│   │
+│   ├── routes/                    # API route handlers
+│   │   ├── houses.js             # House CRUD operations
+│   │   ├── periods.js            # Period management
+│   │   ├── rates.js              # Rate configuration
+│   │   └── images.js             # Image upload/retrieval
+│   │
+│   ├── index.js                   # Express server entry point
+│   ├── package.json              # Backend dependencies
+│   └── .env                       # Environment variables (not in Git)
+│
+├── public/                        # Static assets
+├── .gitignore                     # Git ignore rules
+├── package.json                   # Frontend dependencies
+├── vite.config.js                # Vite configuration
+└── README.md                      # Project documentation
+
+================================================================================
+                          DEPLOYMENT WORKFLOW
+================================================================================
+
+DEVELOPMENT
+--------------------------------------------------------------------------------
+1. Frontend: npm run dev (Port 5173)
+2. Backend:  cd server && npm run dev (Port 5001)
+3. Database: MongoDB Atlas (Cloud)
+
+PRODUCTION DEPLOYMENT
+--------------------------------------------------------------------------------
+1. Push code to GitHub:
+   git add .
+   git commit -m "Your message"
+   git push origin main
+
+2. Automatic Deployment:
+   - Vercel detects changes → Rebuilds frontend → Deploys
+   - Render detects changes → Rebuilds backend → Deploys
+   - Takes 2-3 minutes total
+
+ENVIRONMENT VARIABLES
+--------------------------------------------------------------------------------
+Frontend (.env):
+  VITE_API_URL=https://water-electricity-calculator.onrender.com/api
+
+Backend (server/.env):
+  MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname
+  PORT=5001
+
+================================================================================
+                          BILLING CALCULATION LOGIC
+================================================================================
+
+ELECTRICITY CALCULATION (Thai PEA Rates)
+--------------------------------------------------------------------------------
+Tier 1 (0-150 kWh):     3.2484 ฿/kWh
+Tier 2 (151-400 kWh):   4.2218 ฿/kWh
+Tier 3 (>400 kWh):      4.4217 ฿/kWh
+
+Additional Charges:
+  FT Rate:      0.3972 ฿/kWh (applied to all units)
+  Service Fee:  38.22 ฿ (fixed)
+  VAT:          7% (applied to subtotal)
+
+Formula:
+  Base Cost = (Tier 1 units × Rate 1) + (Tier 2 units × Rate 2) + ...
+  FT Cost = Total units × FT Rate
+  Subtotal = Base Cost + FT Cost + Service Fee
+  Total = Subtotal × 1.07 (VAT)
+
+WATER CALCULATION (Thai PWA Rates)
+--------------------------------------------------------------------------------
+Tier 1 (0-10 m³):       10.20 ฿/m³
+Tier 2 (11-20 m³):      16.00 ฿/m³
+Tier 3 (21-30 m³):      19.00 ฿/m³
+Tier 4 (31-50 m³):      21.20 ฿/m³
+Tier 5 (51-80 m³):      21.60 ฿/m³
+Tier 6 (81-100 m³):     21.65 ฿/m³
+Tier 7 (101-300 m³):    21.70 ฿/m³
+Tier 8 (>300 m³):       21.75 ฿/m³
+
+Additional Charges:
+  Service Fee:  30.00 ฿ (fixed)
+  VAT:          7% (applied to subtotal)
+
+Formula:
+  Base Cost = (Tier 1 units × Rate 1) + (Tier 2 units × Rate 2) + ...
+  Subtotal = Base Cost + Service Fee
+  Total = Subtotal × 1.07 (VAT)
+
+================================================================================
+                          KEY FEATURES & FIXES
+================================================================================
+
+RECENT UPDATES
+--------------------------------------------------------------------------------
+✓ Migrated from localStorage to MongoDB Atlas
+✓ Created Node.js/Express backend API
+✓ Implemented real-time bill calculations
+✓ Added photo upload for meter readings
+✓ Fixed data persistence after page refresh
+✓ Fixed MongoDB schema mismatch (elec vs electricity)
+✓ Removed duplicate default billing periods
+✓ Added automatic deployment via GitHub
+✓ Implemented password-protected rate configuration
+
+KNOWN LIMITATIONS
+--------------------------------------------------------------------------------
+- Images stored as base64 in MongoDB (consider cloud storage for production)
+- No user authentication (single admin/engineer access)
+- No audit trail for data changes
+- Limited to single village/community
+
+FUTURE ENHANCEMENTS
+--------------------------------------------------------------------------------
+□ User authentication & role-based access
+□ Multi-village support
+□ Payment tracking integration
+□ SMS/Email notifications
+□ Mobile app (React Native)
+□ Advanced reporting & analytics
+□ Cloud image storage (AWS S3/Cloudinary)
+□ Data export (Excel/CSV)
+
+================================================================================
+                          TROUBLESHOOTING
+================================================================================
+
+COMMON ISSUES
+--------------------------------------------------------------------------------
+1. Data disappears after refresh
+   → Check MongoDB connection string
+   → Verify backend is running
+   → Check browser console for API errors
+
+2. Bills not calculating
+   → Verify billingCalculator.js is imported
+   → Check rate configuration
+   → Ensure meter readings are numbers
+
+3. Images not uploading
+   → Check file size limits (50MB max)
+   → Verify CORS settings
+   → Check browser console for errors
+
+4. Deployment fails
+   → Verify environment variables in Vercel/Render
+   → Check build logs for errors
+   → Ensure MongoDB URI is correct
+
+SUPPORT CONTACTS
+--------------------------------------------------------------------------------
+Developer: Watewasin Siriratatsadon
+GitHub: https://github.com/watewasin/water-electricity-calculator
+
+================================================================================
+                          VERSION HISTORY
+================================================================================
+
+v1.0.0 (2026-01-19)
+  - Initial production release
+  - MongoDB Atlas integration
+  - Full-stack deployment (Vercel + Render)
+  - Admin dashboard & Engineer mode
+  - PDF export functionality
+
+================================================================================
+                          END OF DOCUMENT
+================================================================================
