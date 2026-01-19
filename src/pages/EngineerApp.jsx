@@ -61,10 +61,7 @@ export default function EngineerApp() {
     }, [selectedMonth]);
 
     const defaultMonths = [
-        { value: '2026-01', label: 'Jan 2026' },
-        { value: '2025-12', label: 'Dec 2025' },
-        { value: '2025-11', label: 'Nov 2025' },
-        { value: '2025-10', label: 'Oct 2025' },
+        { value: '2026-01', label: 'Jan 2026' }
     ];
 
     const allMonths = [...defaultMonths, ...customPeriods].sort((a, b) => b.value.localeCompare(a.value));

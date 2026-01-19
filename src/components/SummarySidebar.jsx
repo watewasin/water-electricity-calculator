@@ -39,10 +39,7 @@ export default function SummarySidebar({ houses, selectedMonth }) {
     }, []);
 
     const defaultMonths = [
-        { value: '2026-01', label: 'January 2026' },
-        { value: '2025-12', label: 'December 2025' },
-        { value: '2025-11', label: 'November 2025' },
-        { value: '2025-10', label: 'October 2025' },
+        { value: '2026-01', label: 'January 2026' }
     ];
 
     const handleAddPeriod = async () => {
