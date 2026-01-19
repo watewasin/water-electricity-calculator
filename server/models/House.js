@@ -21,7 +21,7 @@ const houseSchema = new mongoose.Schema({
         default: 'pending'
     },
     meterData: {
-        electricity: {
+        elec: {
             prev: Number,
             curr: Number
         },
@@ -31,7 +31,7 @@ const houseSchema = new mongoose.Schema({
         }
     },
     billData: {
-        electricity: {
+        elecBill: {
             units: Number,
             baseCost: Number,
             ftCost: Number,
@@ -39,14 +39,15 @@ const houseSchema = new mongoose.Schema({
             vat: Number,
             total: Number
         },
-        water: {
+        waterBill: {
             units: Number,
             baseCost: Number,
             serviceFee: Number,
             vat: Number,
             total: Number
         },
-        grandTotal: Number
+        total: Number,
+        hasImages: Boolean
     }
 }, {
     timestamps: true
