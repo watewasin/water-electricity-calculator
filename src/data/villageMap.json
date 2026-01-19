@@ -1,0 +1,6898 @@
+[
+  {
+    "id": 1,
+    "label": "5082",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1250,
+        "curr": null
+      },
+      "water": {
+        "prev": 200,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 2,
+    "label": "5081",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1300,
+        "curr": null
+      },
+      "water": {
+        "prev": 220,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 3,
+    "label": "5080",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1350,
+        "curr": null
+      },
+      "water": {
+        "prev": 240,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 4,
+    "label": "5079",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1400,
+        "curr": null
+      },
+      "water": {
+        "prev": 260,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 5,
+    "label": "5078",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1450,
+        "curr": null
+      },
+      "water": {
+        "prev": 280,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 6,
+    "label": "5077",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1500,
+        "curr": null
+      },
+      "water": {
+        "prev": 300,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 7,
+    "label": "5076",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1550,
+        "curr": null
+      },
+      "water": {
+        "prev": 320,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 8,
+    "label": "5075",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1600,
+        "curr": null
+      },
+      "water": {
+        "prev": 340,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 9,
+    "label": "5074",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1650,
+        "curr": null
+      },
+      "water": {
+        "prev": 360,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 10,
+    "label": "5073",
+    "zone": "Zone_TopRight",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1700,
+        "curr": null
+      },
+      "water": {
+        "prev": 380,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 11,
+    "label": "5099",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1407,
+        "curr": null
+      },
+      "water": {
+        "prev": 153,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 12,
+    "label": "5098",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1444,
+        "curr": null
+      },
+      "water": {
+        "prev": 176,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 13,
+    "label": "5097",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1481,
+        "curr": null
+      },
+      "water": {
+        "prev": 199,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 14,
+    "label": "5096",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1518,
+        "curr": null
+      },
+      "water": {
+        "prev": 222,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 15,
+    "label": "5095",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1555,
+        "curr": null
+      },
+      "water": {
+        "prev": 245,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 16,
+    "label": "5094",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1592,
+        "curr": null
+      },
+      "water": {
+        "prev": 268,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 17,
+    "label": "5093",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1629,
+        "curr": null
+      },
+      "water": {
+        "prev": 291,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 18,
+    "label": "5092",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1666,
+        "curr": null
+      },
+      "water": {
+        "prev": 114,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 19,
+    "label": "5091",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1703,
+        "curr": null
+      },
+      "water": {
+        "prev": 137,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 20,
+    "label": "5090",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1740,
+        "curr": null
+      },
+      "water": {
+        "prev": 160,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 21,
+    "label": "5089",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1777,
+        "curr": null
+      },
+      "water": {
+        "prev": 183,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 22,
+    "label": "5088",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1014,
+        "curr": null
+      },
+      "water": {
+        "prev": 206,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 23,
+    "label": "5087",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1051,
+        "curr": null
+      },
+      "water": {
+        "prev": 229,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 24,
+    "label": "5086",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1088,
+        "curr": null
+      },
+      "water": {
+        "prev": 252,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 25,
+    "label": "5085",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1125,
+        "curr": null
+      },
+      "water": {
+        "prev": 275,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 26,
+    "label": "5084",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1162,
+        "curr": null
+      },
+      "water": {
+        "prev": 298,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 27,
+    "label": "5083",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1199,
+        "curr": null
+      },
+      "water": {
+        "prev": 121,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 28,
+    "label": "5082",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1236,
+        "curr": null
+      },
+      "water": {
+        "prev": 144,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 29,
+    "label": "5081",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1273,
+        "curr": null
+      },
+      "water": {
+        "prev": 167,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 30,
+    "label": "5080",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1310,
+        "curr": null
+      },
+      "water": {
+        "prev": 190,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 31,
+    "label": "5079",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1347,
+        "curr": null
+      },
+      "water": {
+        "prev": 213,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 32,
+    "label": "5078",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1384,
+        "curr": null
+      },
+      "water": {
+        "prev": 236,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 33,
+    "label": "5077",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1421,
+        "curr": null
+      },
+      "water": {
+        "prev": 259,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 34,
+    "label": "5076",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1458,
+        "curr": null
+      },
+      "water": {
+        "prev": 282,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 35,
+    "label": "5075",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1495,
+        "curr": null
+      },
+      "water": {
+        "prev": 105,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 36,
+    "label": "5074",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1532,
+        "curr": null
+      },
+      "water": {
+        "prev": 128,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 37,
+    "label": "5073",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1569,
+        "curr": null
+      },
+      "water": {
+        "prev": 151,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 38,
+    "label": "5072",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1606,
+        "curr": null
+      },
+      "water": {
+        "prev": 174,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 39,
+    "label": "5071",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1643,
+        "curr": null
+      },
+      "water": {
+        "prev": 197,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 40,
+    "label": "5070",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1680,
+        "curr": null
+      },
+      "water": {
+        "prev": 220,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 41,
+    "label": "5069",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1717,
+        "curr": null
+      },
+      "water": {
+        "prev": 243,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 42,
+    "label": "5068",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1754,
+        "curr": null
+      },
+      "water": {
+        "prev": 266,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 43,
+    "label": "5067",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1791,
+        "curr": null
+      },
+      "water": {
+        "prev": 289,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 44,
+    "label": "5066",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1028,
+        "curr": null
+      },
+      "water": {
+        "prev": 112,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 45,
+    "label": "5065",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1065,
+        "curr": null
+      },
+      "water": {
+        "prev": 135,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 46,
+    "label": "5064",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1102,
+        "curr": null
+      },
+      "water": {
+        "prev": 158,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 47,
+    "label": "5063",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1139,
+        "curr": null
+      },
+      "water": {
+        "prev": 181,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 48,
+    "label": "5062",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1176,
+        "curr": null
+      },
+      "water": {
+        "prev": 204,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 49,
+    "label": "5061",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1213,
+        "curr": null
+      },
+      "water": {
+        "prev": 227,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 50,
+    "label": "5060",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1250,
+        "curr": null
+      },
+      "water": {
+        "prev": 250,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 51,
+    "label": "5059",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1287,
+        "curr": null
+      },
+      "water": {
+        "prev": 273,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 52,
+    "label": "5058",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1324,
+        "curr": null
+      },
+      "water": {
+        "prev": 296,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 53,
+    "label": "5057",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1361,
+        "curr": null
+      },
+      "water": {
+        "prev": 119,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 54,
+    "label": "5056",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1398,
+        "curr": null
+      },
+      "water": {
+        "prev": 142,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 55,
+    "label": "5055",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1435,
+        "curr": null
+      },
+      "water": {
+        "prev": 165,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 56,
+    "label": "5054",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1472,
+        "curr": null
+      },
+      "water": {
+        "prev": 188,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 57,
+    "label": "5053",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1509,
+        "curr": null
+      },
+      "water": {
+        "prev": 211,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 58,
+    "label": "5052",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1546,
+        "curr": null
+      },
+      "water": {
+        "prev": 234,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 59,
+    "label": "5051",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1583,
+        "curr": null
+      },
+      "water": {
+        "prev": 257,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 60,
+    "label": "5050",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1620,
+        "curr": null
+      },
+      "water": {
+        "prev": 280,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 61,
+    "label": "5049",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1657,
+        "curr": null
+      },
+      "water": {
+        "prev": 103,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 62,
+    "label": "5048",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1694,
+        "curr": null
+      },
+      "water": {
+        "prev": 126,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 63,
+    "label": "5047",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1731,
+        "curr": null
+      },
+      "water": {
+        "prev": 149,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 64,
+    "label": "5046",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1768,
+        "curr": null
+      },
+      "water": {
+        "prev": 172,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 65,
+    "label": "5045",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1005,
+        "curr": null
+      },
+      "water": {
+        "prev": 195,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 66,
+    "label": "5044",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1042,
+        "curr": null
+      },
+      "water": {
+        "prev": 218,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 67,
+    "label": "5043",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1079,
+        "curr": null
+      },
+      "water": {
+        "prev": 241,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 68,
+    "label": "5042",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1116,
+        "curr": null
+      },
+      "water": {
+        "prev": 264,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 69,
+    "label": "5041",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1153,
+        "curr": null
+      },
+      "water": {
+        "prev": 287,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 70,
+    "label": "5040",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1190,
+        "curr": null
+      },
+      "water": {
+        "prev": 110,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 71,
+    "label": "5039",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1227,
+        "curr": null
+      },
+      "water": {
+        "prev": 133,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 72,
+    "label": "5038",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1264,
+        "curr": null
+      },
+      "water": {
+        "prev": 156,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 73,
+    "label": "5037",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1301,
+        "curr": null
+      },
+      "water": {
+        "prev": 179,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 74,
+    "label": "5036",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1338,
+        "curr": null
+      },
+      "water": {
+        "prev": 202,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 75,
+    "label": "5035",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1375,
+        "curr": null
+      },
+      "water": {
+        "prev": 225,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 76,
+    "label": "5034",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1412,
+        "curr": null
+      },
+      "water": {
+        "prev": 248,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 77,
+    "label": "5033",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1449,
+        "curr": null
+      },
+      "water": {
+        "prev": 271,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 78,
+    "label": "5032",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1486,
+        "curr": null
+      },
+      "water": {
+        "prev": 294,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 79,
+    "label": "5031",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1523,
+        "curr": null
+      },
+      "water": {
+        "prev": 117,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 80,
+    "label": "5030",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1560,
+        "curr": null
+      },
+      "water": {
+        "prev": 140,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 81,
+    "label": "5029",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1597,
+        "curr": null
+      },
+      "water": {
+        "prev": 163,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 82,
+    "label": "5028",
+    "zone": "Zone_N",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1634,
+        "curr": null
+      },
+      "water": {
+        "prev": 186,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 83,
+    "label": "3024",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1671,
+        "curr": null
+      },
+      "water": {
+        "prev": 209,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 84,
+    "label": "3023",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1708,
+        "curr": null
+      },
+      "water": {
+        "prev": 232,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 85,
+    "label": "3022",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1745,
+        "curr": null
+      },
+      "water": {
+        "prev": 255,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 86,
+    "label": "3021",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1782,
+        "curr": null
+      },
+      "water": {
+        "prev": 278,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 87,
+    "label": "3020",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1019,
+        "curr": null
+      },
+      "water": {
+        "prev": 101,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 88,
+    "label": "3019",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1056,
+        "curr": null
+      },
+      "water": {
+        "prev": 124,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 89,
+    "label": "3018",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1093,
+        "curr": null
+      },
+      "water": {
+        "prev": 147,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 90,
+    "label": "3017",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1130,
+        "curr": null
+      },
+      "water": {
+        "prev": 170,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 91,
+    "label": "3016",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1167,
+        "curr": null
+      },
+      "water": {
+        "prev": 193,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 92,
+    "label": "3015",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1204,
+        "curr": null
+      },
+      "water": {
+        "prev": 216,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 93,
+    "label": "3014",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1241,
+        "curr": null
+      },
+      "water": {
+        "prev": 239,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 94,
+    "label": "3013",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1278,
+        "curr": null
+      },
+      "water": {
+        "prev": 262,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 95,
+    "label": "3012",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1315,
+        "curr": null
+      },
+      "water": {
+        "prev": 285,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 96,
+    "label": "3011",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1352,
+        "curr": null
+      },
+      "water": {
+        "prev": 108,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 97,
+    "label": "3010",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1389,
+        "curr": null
+      },
+      "water": {
+        "prev": 131,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 98,
+    "label": "3009",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1426,
+        "curr": null
+      },
+      "water": {
+        "prev": 154,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 99,
+    "label": "3008",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1463,
+        "curr": null
+      },
+      "water": {
+        "prev": 177,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 100,
+    "label": "3007",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1500,
+        "curr": null
+      },
+      "water": {
+        "prev": 200,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 101,
+    "label": "3006",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1537,
+        "curr": null
+      },
+      "water": {
+        "prev": 223,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 102,
+    "label": "3005",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1574,
+        "curr": null
+      },
+      "water": {
+        "prev": 246,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 103,
+    "label": "3004",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1611,
+        "curr": null
+      },
+      "water": {
+        "prev": 269,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 104,
+    "label": "3003",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1648,
+        "curr": null
+      },
+      "water": {
+        "prev": 292,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 105,
+    "label": "3002",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1685,
+        "curr": null
+      },
+      "water": {
+        "prev": 115,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 106,
+    "label": "3001",
+    "zone": "Zone_18",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1722,
+        "curr": null
+      },
+      "water": {
+        "prev": 138,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 107,
+    "label": "3042",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1759,
+        "curr": null
+      },
+      "water": {
+        "prev": 161,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 108,
+    "label": "3041",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1796,
+        "curr": null
+      },
+      "water": {
+        "prev": 184,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 109,
+    "label": "3040",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1033,
+        "curr": null
+      },
+      "water": {
+        "prev": 207,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 110,
+    "label": "3039",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1070,
+        "curr": null
+      },
+      "water": {
+        "prev": 230,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 111,
+    "label": "3038",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1107,
+        "curr": null
+      },
+      "water": {
+        "prev": 253,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 112,
+    "label": "3037",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1144,
+        "curr": null
+      },
+      "water": {
+        "prev": 276,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 113,
+    "label": "3036",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1181,
+        "curr": null
+      },
+      "water": {
+        "prev": 299,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 114,
+    "label": "3035",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1218,
+        "curr": null
+      },
+      "water": {
+        "prev": 122,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 115,
+    "label": "3034",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1255,
+        "curr": null
+      },
+      "water": {
+        "prev": 145,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 116,
+    "label": "3033",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1292,
+        "curr": null
+      },
+      "water": {
+        "prev": 168,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 117,
+    "label": "3032",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1329,
+        "curr": null
+      },
+      "water": {
+        "prev": 191,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 118,
+    "label": "3031",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1366,
+        "curr": null
+      },
+      "water": {
+        "prev": 214,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 119,
+    "label": "3030",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1403,
+        "curr": null
+      },
+      "water": {
+        "prev": 237,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 120,
+    "label": "3029",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1440,
+        "curr": null
+      },
+      "water": {
+        "prev": 260,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 121,
+    "label": "3028",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1477,
+        "curr": null
+      },
+      "water": {
+        "prev": 283,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 122,
+    "label": "3027",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1514,
+        "curr": null
+      },
+      "water": {
+        "prev": 106,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 123,
+    "label": "3026A",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1551,
+        "curr": null
+      },
+      "water": {
+        "prev": 129,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 536,
+    "label": "3026B",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1551,
+        "curr": null
+      },
+      "water": {
+        "prev": 129,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 124,
+    "label": "3025",
+    "zone": "Zone_C",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1588,
+        "curr": null
+      },
+      "water": {
+        "prev": 152,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 125,
+    "label": "1032",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1625,
+        "curr": null
+      },
+      "water": {
+        "prev": 175,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 126,
+    "label": "1031",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1662,
+        "curr": null
+      },
+      "water": {
+        "prev": 198,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 127,
+    "label": "1030",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1699,
+        "curr": null
+      },
+      "water": {
+        "prev": 221,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 128,
+    "label": "1029",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1736,
+        "curr": null
+      },
+      "water": {
+        "prev": 244,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 129,
+    "label": "1028",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1773,
+        "curr": null
+      },
+      "water": {
+        "prev": 267,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 130,
+    "label": "1027",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1010,
+        "curr": null
+      },
+      "water": {
+        "prev": 290,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 131,
+    "label": "1026",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1047,
+        "curr": null
+      },
+      "water": {
+        "prev": 113,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 132,
+    "label": "1025",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1084,
+        "curr": null
+      },
+      "water": {
+        "prev": 136,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 133,
+    "label": "1024",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1121,
+        "curr": null
+      },
+      "water": {
+        "prev": 159,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 134,
+    "label": "1023",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1158,
+        "curr": null
+      },
+      "water": {
+        "prev": 182,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 135,
+    "label": "1022",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1195,
+        "curr": null
+      },
+      "water": {
+        "prev": 205,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 136,
+    "label": "1021",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1232,
+        "curr": null
+      },
+      "water": {
+        "prev": 228,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 137,
+    "label": "1020",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1269,
+        "curr": null
+      },
+      "water": {
+        "prev": 251,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 138,
+    "label": "1019",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1306,
+        "curr": null
+      },
+      "water": {
+        "prev": 274,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 139,
+    "label": "1018",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1343,
+        "curr": null
+      },
+      "water": {
+        "prev": 297,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 140,
+    "label": "1017",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1380,
+        "curr": null
+      },
+      "water": {
+        "prev": 120,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 141,
+    "label": "1016",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1417,
+        "curr": null
+      },
+      "water": {
+        "prev": 143,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 142,
+    "label": "1015",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1454,
+        "curr": null
+      },
+      "water": {
+        "prev": 166,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 143,
+    "label": "1014",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1491,
+        "curr": null
+      },
+      "water": {
+        "prev": 189,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 144,
+    "label": "1013",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1528,
+        "curr": null
+      },
+      "water": {
+        "prev": 212,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 145,
+    "label": "1012",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1565,
+        "curr": null
+      },
+      "water": {
+        "prev": 235,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 146,
+    "label": "1011",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1602,
+        "curr": null
+      },
+      "water": {
+        "prev": 258,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 147,
+    "label": "1010",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1639,
+        "curr": null
+      },
+      "water": {
+        "prev": 281,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 148,
+    "label": "1009",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1676,
+        "curr": null
+      },
+      "water": {
+        "prev": 104,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 149,
+    "label": "1008",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1713,
+        "curr": null
+      },
+      "water": {
+        "prev": 127,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 150,
+    "label": "1007",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1750,
+        "curr": null
+      },
+      "water": {
+        "prev": 150,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 151,
+    "label": "1006",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1787,
+        "curr": null
+      },
+      "water": {
+        "prev": 173,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 152,
+    "label": "1005",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1024,
+        "curr": null
+      },
+      "water": {
+        "prev": 196,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 153,
+    "label": "1004",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1061,
+        "curr": null
+      },
+      "water": {
+        "prev": 219,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 154,
+    "label": "1003",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1098,
+        "curr": null
+      },
+      "water": {
+        "prev": 242,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 155,
+    "label": "1002",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1135,
+        "curr": null
+      },
+      "water": {
+        "prev": 265,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 156,
+    "label": "1001",
+    "zone": "Zone_E",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1172,
+        "curr": null
+      },
+      "water": {
+        "prev": 288,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 157,
+    "label": "2050",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1209,
+        "curr": null
+      },
+      "water": {
+        "prev": 111,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 158,
+    "label": "2049",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1246,
+        "curr": null
+      },
+      "water": {
+        "prev": 134,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 159,
+    "label": "2048",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1283,
+        "curr": null
+      },
+      "water": {
+        "prev": 157,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 160,
+    "label": "2047",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1320,
+        "curr": null
+      },
+      "water": {
+        "prev": 180,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 161,
+    "label": "2046",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1357,
+        "curr": null
+      },
+      "water": {
+        "prev": 203,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 162,
+    "label": "2045",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1394,
+        "curr": null
+      },
+      "water": {
+        "prev": 226,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 163,
+    "label": "2044",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1431,
+        "curr": null
+      },
+      "water": {
+        "prev": 249,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 164,
+    "label": "2043",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1468,
+        "curr": null
+      },
+      "water": {
+        "prev": 272,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 165,
+    "label": "2042",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1505,
+        "curr": null
+      },
+      "water": {
+        "prev": 295,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 166,
+    "label": "2041",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1542,
+        "curr": null
+      },
+      "water": {
+        "prev": 118,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 167,
+    "label": "2040",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1579,
+        "curr": null
+      },
+      "water": {
+        "prev": 141,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 168,
+    "label": "2039",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1616,
+        "curr": null
+      },
+      "water": {
+        "prev": 164,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 169,
+    "label": "2038",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1653,
+        "curr": null
+      },
+      "water": {
+        "prev": 187,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 170,
+    "label": "2037",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1690,
+        "curr": null
+      },
+      "water": {
+        "prev": 210,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 171,
+    "label": "2036",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1727,
+        "curr": null
+      },
+      "water": {
+        "prev": 233,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 172,
+    "label": "2035",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1764,
+        "curr": null
+      },
+      "water": {
+        "prev": 256,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 173,
+    "label": "2034",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1001,
+        "curr": null
+      },
+      "water": {
+        "prev": 279,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 174,
+    "label": "2033",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1038,
+        "curr": null
+      },
+      "water": {
+        "prev": 102,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 175,
+    "label": "2032",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1075,
+        "curr": null
+      },
+      "water": {
+        "prev": 125,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 176,
+    "label": "2031",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1112,
+        "curr": null
+      },
+      "water": {
+        "prev": 148,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 177,
+    "label": "2030",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1149,
+        "curr": null
+      },
+      "water": {
+        "prev": 171,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 178,
+    "label": "2029",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1186,
+        "curr": null
+      },
+      "water": {
+        "prev": 194,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 179,
+    "label": "2028",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1223,
+        "curr": null
+      },
+      "water": {
+        "prev": 217,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 180,
+    "label": "2027",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1260,
+        "curr": null
+      },
+      "water": {
+        "prev": 240,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 181,
+    "label": "2026",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1297,
+        "curr": null
+      },
+      "water": {
+        "prev": 263,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 182,
+    "label": "2025",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1334,
+        "curr": null
+      },
+      "water": {
+        "prev": 286,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 183,
+    "label": "2024",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1371,
+        "curr": null
+      },
+      "water": {
+        "prev": 109,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 184,
+    "label": "2023",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1408,
+        "curr": null
+      },
+      "water": {
+        "prev": 132,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 185,
+    "label": "2022",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1445,
+        "curr": null
+      },
+      "water": {
+        "prev": 155,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 186,
+    "label": "2021",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1482,
+        "curr": null
+      },
+      "water": {
+        "prev": 178,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 187,
+    "label": "2020",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1519,
+        "curr": null
+      },
+      "water": {
+        "prev": 201,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 188,
+    "label": "2019",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1556,
+        "curr": null
+      },
+      "water": {
+        "prev": 224,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 189,
+    "label": "2018",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1593,
+        "curr": null
+      },
+      "water": {
+        "prev": 247,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 190,
+    "label": "2017",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1630,
+        "curr": null
+      },
+      "water": {
+        "prev": 270,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 191,
+    "label": "2016",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1667,
+        "curr": null
+      },
+      "water": {
+        "prev": 293,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 192,
+    "label": "2015",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1704,
+        "curr": null
+      },
+      "water": {
+        "prev": 116,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 193,
+    "label": "2014",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1741,
+        "curr": null
+      },
+      "water": {
+        "prev": 139,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 194,
+    "label": "2013",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1778,
+        "curr": null
+      },
+      "water": {
+        "prev": 162,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 195,
+    "label": "2012",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1015,
+        "curr": null
+      },
+      "water": {
+        "prev": 185,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 196,
+    "label": "2011",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1052,
+        "curr": null
+      },
+      "water": {
+        "prev": 208,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 197,
+    "label": "2010",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1089,
+        "curr": null
+      },
+      "water": {
+        "prev": 231,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 198,
+    "label": "2009",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1126,
+        "curr": null
+      },
+      "water": {
+        "prev": 254,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 199,
+    "label": "2008",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1163,
+        "curr": null
+      },
+      "water": {
+        "prev": 277,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 200,
+    "label": "2007",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1200,
+        "curr": null
+      },
+      "water": {
+        "prev": 100,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 201,
+    "label": "2006",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1237,
+        "curr": null
+      },
+      "water": {
+        "prev": 123,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 202,
+    "label": "2005",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1274,
+        "curr": null
+      },
+      "water": {
+        "prev": 146,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 203,
+    "label": "2004",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1311,
+        "curr": null
+      },
+      "water": {
+        "prev": 169,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 204,
+    "label": "2003",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1348,
+        "curr": null
+      },
+      "water": {
+        "prev": 192,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 205,
+    "label": "2002",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1385,
+        "curr": null
+      },
+      "water": {
+        "prev": 215,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 206,
+    "label": "2001",
+    "zone": "Zone_S",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1422,
+        "curr": null
+      },
+      "water": {
+        "prev": 238,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 207,
+    "label": "4008",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1459,
+        "curr": null
+      },
+      "water": {
+        "prev": 261,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 208,
+    "label": "4007",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1496,
+        "curr": null
+      },
+      "water": {
+        "prev": 284,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 209,
+    "label": "4006",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1533,
+        "curr": null
+      },
+      "water": {
+        "prev": 107,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 210,
+    "label": "4005",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1570,
+        "curr": null
+      },
+      "water": {
+        "prev": 130,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 211,
+    "label": "4004",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1607,
+        "curr": null
+      },
+      "water": {
+        "prev": 153,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 212,
+    "label": "4003",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1644,
+        "curr": null
+      },
+      "water": {
+        "prev": 176,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 213,
+    "label": "4002",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1681,
+        "curr": null
+      },
+      "water": {
+        "prev": 199,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 214,
+    "label": "4001",
+    "zone": "Zone_W",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1718,
+        "curr": null
+      },
+      "water": {
+        "prev": 222,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 215,
+    "label": "6080",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1755,
+        "curr": null
+      },
+      "water": {
+        "prev": 245,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 216,
+    "label": "6079",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1792,
+        "curr": null
+      },
+      "water": {
+        "prev": 268,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 217,
+    "label": "6078",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1029,
+        "curr": null
+      },
+      "water": {
+        "prev": 291,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 218,
+    "label": "6077",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1066,
+        "curr": null
+      },
+      "water": {
+        "prev": 114,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 219,
+    "label": "6076",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1103,
+        "curr": null
+      },
+      "water": {
+        "prev": 137,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 220,
+    "label": "6075",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1140,
+        "curr": null
+      },
+      "water": {
+        "prev": 160,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 221,
+    "label": "6074",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1177,
+        "curr": null
+      },
+      "water": {
+        "prev": 183,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 222,
+    "label": "6073",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1214,
+        "curr": null
+      },
+      "water": {
+        "prev": 206,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 223,
+    "label": "6072",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1251,
+        "curr": null
+      },
+      "water": {
+        "prev": 229,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 224,
+    "label": "6071",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1288,
+        "curr": null
+      },
+      "water": {
+        "prev": 252,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 225,
+    "label": "6070",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1325,
+        "curr": null
+      },
+      "water": {
+        "prev": 275,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 226,
+    "label": "6069",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1362,
+        "curr": null
+      },
+      "water": {
+        "prev": 298,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 227,
+    "label": "6068",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1399,
+        "curr": null
+      },
+      "water": {
+        "prev": 121,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 228,
+    "label": "6067",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1436,
+        "curr": null
+      },
+      "water": {
+        "prev": 144,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 229,
+    "label": "6066",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1473,
+        "curr": null
+      },
+      "water": {
+        "prev": 167,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 230,
+    "label": "6065",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1510,
+        "curr": null
+      },
+      "water": {
+        "prev": 190,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 231,
+    "label": "6064",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1547,
+        "curr": null
+      },
+      "water": {
+        "prev": 213,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 232,
+    "label": "6063",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1584,
+        "curr": null
+      },
+      "water": {
+        "prev": 236,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 233,
+    "label": "6062",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1621,
+        "curr": null
+      },
+      "water": {
+        "prev": 259,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 234,
+    "label": "6061",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1658,
+        "curr": null
+      },
+      "water": {
+        "prev": 282,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 235,
+    "label": "6060",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1695,
+        "curr": null
+      },
+      "water": {
+        "prev": 105,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 236,
+    "label": "6059",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1732,
+        "curr": null
+      },
+      "water": {
+        "prev": 128,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 237,
+    "label": "6058",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1769,
+        "curr": null
+      },
+      "water": {
+        "prev": 151,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 238,
+    "label": "6057",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1006,
+        "curr": null
+      },
+      "water": {
+        "prev": 174,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 239,
+    "label": "6056",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1043,
+        "curr": null
+      },
+      "water": {
+        "prev": 197,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 240,
+    "label": "6055",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1080,
+        "curr": null
+      },
+      "water": {
+        "prev": 220,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 241,
+    "label": "6054",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1117,
+        "curr": null
+      },
+      "water": {
+        "prev": 243,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 242,
+    "label": "6053",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1154,
+        "curr": null
+      },
+      "water": {
+        "prev": 266,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 243,
+    "label": "6052",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1191,
+        "curr": null
+      },
+      "water": {
+        "prev": 289,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 244,
+    "label": "6051",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1228,
+        "curr": null
+      },
+      "water": {
+        "prev": 112,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 245,
+    "label": "6050",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1265,
+        "curr": null
+      },
+      "water": {
+        "prev": 135,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 246,
+    "label": "6049",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1302,
+        "curr": null
+      },
+      "water": {
+        "prev": 158,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 247,
+    "label": "6048",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1339,
+        "curr": null
+      },
+      "water": {
+        "prev": 181,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 248,
+    "label": "6047",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1376,
+        "curr": null
+      },
+      "water": {
+        "prev": 204,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 249,
+    "label": "6046",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1413,
+        "curr": null
+      },
+      "water": {
+        "prev": 227,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 250,
+    "label": "6045",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1450,
+        "curr": null
+      },
+      "water": {
+        "prev": 250,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 251,
+    "label": "6044",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1487,
+        "curr": null
+      },
+      "water": {
+        "prev": 273,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 252,
+    "label": "6043",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1524,
+        "curr": null
+      },
+      "water": {
+        "prev": 296,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 253,
+    "label": "6042",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1561,
+        "curr": null
+      },
+      "water": {
+        "prev": 119,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 254,
+    "label": "6041",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1598,
+        "curr": null
+      },
+      "water": {
+        "prev": 142,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 255,
+    "label": "6040",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1635,
+        "curr": null
+      },
+      "water": {
+        "prev": 165,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 256,
+    "label": "6039",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1672,
+        "curr": null
+      },
+      "water": {
+        "prev": 188,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 257,
+    "label": "6038",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1709,
+        "curr": null
+      },
+      "water": {
+        "prev": 211,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 258,
+    "label": "6037",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1746,
+        "curr": null
+      },
+      "water": {
+        "prev": 234,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 259,
+    "label": "6036",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1783,
+        "curr": null
+      },
+      "water": {
+        "prev": 257,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 260,
+    "label": "6035",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1020,
+        "curr": null
+      },
+      "water": {
+        "prev": 280,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 261,
+    "label": "6034",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1057,
+        "curr": null
+      },
+      "water": {
+        "prev": 103,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 262,
+    "label": "6033",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1094,
+        "curr": null
+      },
+      "water": {
+        "prev": 126,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 263,
+    "label": "6032",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1131,
+        "curr": null
+      },
+      "water": {
+        "prev": 149,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 264,
+    "label": "6031",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1168,
+        "curr": null
+      },
+      "water": {
+        "prev": 172,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 265,
+    "label": "6030",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1205,
+        "curr": null
+      },
+      "water": {
+        "prev": 195,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 266,
+    "label": "6029",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1242,
+        "curr": null
+      },
+      "water": {
+        "prev": 218,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 267,
+    "label": "6028",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1279,
+        "curr": null
+      },
+      "water": {
+        "prev": 241,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 268,
+    "label": "6027",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1316,
+        "curr": null
+      },
+      "water": {
+        "prev": 264,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 269,
+    "label": "6026",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1353,
+        "curr": null
+      },
+      "water": {
+        "prev": 287,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 270,
+    "label": "6025",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1390,
+        "curr": null
+      },
+      "water": {
+        "prev": 110,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 271,
+    "label": "6024",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1427,
+        "curr": null
+      },
+      "water": {
+        "prev": 133,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 272,
+    "label": "6023",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1464,
+        "curr": null
+      },
+      "water": {
+        "prev": 156,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 273,
+    "label": "6022",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1501,
+        "curr": null
+      },
+      "water": {
+        "prev": 179,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 274,
+    "label": "6021",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1538,
+        "curr": null
+      },
+      "water": {
+        "prev": 202,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 275,
+    "label": "6020",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1575,
+        "curr": null
+      },
+      "water": {
+        "prev": 225,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 276,
+    "label": "6019",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1612,
+        "curr": null
+      },
+      "water": {
+        "prev": 248,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 277,
+    "label": "6018",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1649,
+        "curr": null
+      },
+      "water": {
+        "prev": 271,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 278,
+    "label": "6017",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1686,
+        "curr": null
+      },
+      "water": {
+        "prev": 294,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 279,
+    "label": "6016",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1723,
+        "curr": null
+      },
+      "water": {
+        "prev": 117,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 280,
+    "label": "6015",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1760,
+        "curr": null
+      },
+      "water": {
+        "prev": 140,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 281,
+    "label": "6014",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1797,
+        "curr": null
+      },
+      "water": {
+        "prev": 163,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 282,
+    "label": "6013",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1034,
+        "curr": null
+      },
+      "water": {
+        "prev": 186,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 283,
+    "label": "6012",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1071,
+        "curr": null
+      },
+      "water": {
+        "prev": 209,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 284,
+    "label": "6011",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1108,
+        "curr": null
+      },
+      "water": {
+        "prev": 232,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 285,
+    "label": "6010",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1145,
+        "curr": null
+      },
+      "water": {
+        "prev": 255,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 286,
+    "label": "6009",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1182,
+        "curr": null
+      },
+      "water": {
+        "prev": 278,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 287,
+    "label": "6008",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1219,
+        "curr": null
+      },
+      "water": {
+        "prev": 101,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 288,
+    "label": "6007",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1256,
+        "curr": null
+      },
+      "water": {
+        "prev": 124,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 289,
+    "label": "6006",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1293,
+        "curr": null
+      },
+      "water": {
+        "prev": 147,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 290,
+    "label": "6005",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1330,
+        "curr": null
+      },
+      "water": {
+        "prev": 170,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 291,
+    "label": "6004",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1367,
+        "curr": null
+      },
+      "water": {
+        "prev": 193,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 292,
+    "label": "6003",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1404,
+        "curr": null
+      },
+      "water": {
+        "prev": 216,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 293,
+    "label": "6002",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1441,
+        "curr": null
+      },
+      "water": {
+        "prev": 239,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 294,
+    "label": "6001",
+    "zone": "Zone_TR",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1478,
+        "curr": null
+      },
+      "water": {
+        "prev": 262,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 295,
+    "label": "7136",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1515,
+        "curr": null
+      },
+      "water": {
+        "prev": 285,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 296,
+    "label": "7135",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1552,
+        "curr": null
+      },
+      "water": {
+        "prev": 108,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 297,
+    "label": "7134",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1589,
+        "curr": null
+      },
+      "water": {
+        "prev": 131,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 298,
+    "label": "7133",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1626,
+        "curr": null
+      },
+      "water": {
+        "prev": 154,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 299,
+    "label": "7132",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1663,
+        "curr": null
+      },
+      "water": {
+        "prev": 177,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 300,
+    "label": "7131",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1700,
+        "curr": null
+      },
+      "water": {
+        "prev": 200,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 301,
+    "label": "7130",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1737,
+        "curr": null
+      },
+      "water": {
+        "prev": 223,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 302,
+    "label": "7129",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1774,
+        "curr": null
+      },
+      "water": {
+        "prev": 246,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 303,
+    "label": "7128",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1011,
+        "curr": null
+      },
+      "water": {
+        "prev": 269,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 304,
+    "label": "7127",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1048,
+        "curr": null
+      },
+      "water": {
+        "prev": 292,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 305,
+    "label": "7126",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1085,
+        "curr": null
+      },
+      "water": {
+        "prev": 115,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 306,
+    "label": "7125",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1122,
+        "curr": null
+      },
+      "water": {
+        "prev": 138,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 307,
+    "label": "7124",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1159,
+        "curr": null
+      },
+      "water": {
+        "prev": 161,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 308,
+    "label": "7123",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1196,
+        "curr": null
+      },
+      "water": {
+        "prev": 184,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 309,
+    "label": "7122",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1233,
+        "curr": null
+      },
+      "water": {
+        "prev": 207,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 310,
+    "label": "7121",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1270,
+        "curr": null
+      },
+      "water": {
+        "prev": 230,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 311,
+    "label": "7120",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1307,
+        "curr": null
+      },
+      "water": {
+        "prev": 253,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 312,
+    "label": "7119",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1344,
+        "curr": null
+      },
+      "water": {
+        "prev": 276,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 313,
+    "label": "7118",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1381,
+        "curr": null
+      },
+      "water": {
+        "prev": 299,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 314,
+    "label": "7117",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1418,
+        "curr": null
+      },
+      "water": {
+        "prev": 122,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 315,
+    "label": "7116",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1455,
+        "curr": null
+      },
+      "water": {
+        "prev": 145,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 316,
+    "label": "7115",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1492,
+        "curr": null
+      },
+      "water": {
+        "prev": 168,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 317,
+    "label": "7114",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1529,
+        "curr": null
+      },
+      "water": {
+        "prev": 191,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 318,
+    "label": "7113",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1566,
+        "curr": null
+      },
+      "water": {
+        "prev": 214,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 319,
+    "label": "7112",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1603,
+        "curr": null
+      },
+      "water": {
+        "prev": 237,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 320,
+    "label": "7111",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1640,
+        "curr": null
+      },
+      "water": {
+        "prev": 260,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 321,
+    "label": "7110",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1677,
+        "curr": null
+      },
+      "water": {
+        "prev": 283,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 322,
+    "label": "7109",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1714,
+        "curr": null
+      },
+      "water": {
+        "prev": 106,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 323,
+    "label": "7108",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1751,
+        "curr": null
+      },
+      "water": {
+        "prev": 129,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 324,
+    "label": "7107",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1788,
+        "curr": null
+      },
+      "water": {
+        "prev": 152,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 325,
+    "label": "7106",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1025,
+        "curr": null
+      },
+      "water": {
+        "prev": 175,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 326,
+    "label": "7105",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1062,
+        "curr": null
+      },
+      "water": {
+        "prev": 198,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 327,
+    "label": "7104",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1099,
+        "curr": null
+      },
+      "water": {
+        "prev": 221,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 328,
+    "label": "7103",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1136,
+        "curr": null
+      },
+      "water": {
+        "prev": 244,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 329,
+    "label": "7102",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1173,
+        "curr": null
+      },
+      "water": {
+        "prev": 267,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 330,
+    "label": "7101",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1210,
+        "curr": null
+      },
+      "water": {
+        "prev": 290,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 331,
+    "label": "7100",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1247,
+        "curr": null
+      },
+      "water": {
+        "prev": 113,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 332,
+    "label": "7099",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1284,
+        "curr": null
+      },
+      "water": {
+        "prev": 136,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 333,
+    "label": "7098",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1321,
+        "curr": null
+      },
+      "water": {
+        "prev": 159,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 334,
+    "label": "7097",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1358,
+        "curr": null
+      },
+      "water": {
+        "prev": 182,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 335,
+    "label": "7096",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1395,
+        "curr": null
+      },
+      "water": {
+        "prev": 205,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 336,
+    "label": "7095",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1432,
+        "curr": null
+      },
+      "water": {
+        "prev": 228,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 337,
+    "label": "7094",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1469,
+        "curr": null
+      },
+      "water": {
+        "prev": 251,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 338,
+    "label": "7093",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1506,
+        "curr": null
+      },
+      "water": {
+        "prev": 274,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 339,
+    "label": "7092",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1543,
+        "curr": null
+      },
+      "water": {
+        "prev": 297,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 340,
+    "label": "7091",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1580,
+        "curr": null
+      },
+      "water": {
+        "prev": 120,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 341,
+    "label": "7090",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1617,
+        "curr": null
+      },
+      "water": {
+        "prev": 143,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 342,
+    "label": "7089",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1654,
+        "curr": null
+      },
+      "water": {
+        "prev": 166,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 343,
+    "label": "7088",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1691,
+        "curr": null
+      },
+      "water": {
+        "prev": 189,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 344,
+    "label": "7087",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1728,
+        "curr": null
+      },
+      "water": {
+        "prev": 212,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 345,
+    "label": "7086",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1765,
+        "curr": null
+      },
+      "water": {
+        "prev": 235,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 346,
+    "label": "7085",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1002,
+        "curr": null
+      },
+      "water": {
+        "prev": 258,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 347,
+    "label": "7084",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1039,
+        "curr": null
+      },
+      "water": {
+        "prev": 281,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 348,
+    "label": "7083",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1076,
+        "curr": null
+      },
+      "water": {
+        "prev": 104,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 349,
+    "label": "7082",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1113,
+        "curr": null
+      },
+      "water": {
+        "prev": 127,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 350,
+    "label": "7081",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1150,
+        "curr": null
+      },
+      "water": {
+        "prev": 150,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 351,
+    "label": "7080",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1187,
+        "curr": null
+      },
+      "water": {
+        "prev": 173,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 352,
+    "label": "7079",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1224,
+        "curr": null
+      },
+      "water": {
+        "prev": 196,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 353,
+    "label": "7078",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1261,
+        "curr": null
+      },
+      "water": {
+        "prev": 219,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 354,
+    "label": "7077",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1298,
+        "curr": null
+      },
+      "water": {
+        "prev": 242,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 355,
+    "label": "7076",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1335,
+        "curr": null
+      },
+      "water": {
+        "prev": 265,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 356,
+    "label": "7075",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1372,
+        "curr": null
+      },
+      "water": {
+        "prev": 288,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 357,
+    "label": "7074",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1409,
+        "curr": null
+      },
+      "water": {
+        "prev": 111,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 358,
+    "label": "7073",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1446,
+        "curr": null
+      },
+      "water": {
+        "prev": 134,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 359,
+    "label": "7072",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1483,
+        "curr": null
+      },
+      "water": {
+        "prev": 157,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 360,
+    "label": "7071",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1520,
+        "curr": null
+      },
+      "water": {
+        "prev": 180,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 361,
+    "label": "7070",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1557,
+        "curr": null
+      },
+      "water": {
+        "prev": 203,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 362,
+    "label": "7069",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1594,
+        "curr": null
+      },
+      "water": {
+        "prev": 226,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 363,
+    "label": "7068",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1631,
+        "curr": null
+      },
+      "water": {
+        "prev": 249,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 364,
+    "label": "7067",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1668,
+        "curr": null
+      },
+      "water": {
+        "prev": 272,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 365,
+    "label": "7066",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1705,
+        "curr": null
+      },
+      "water": {
+        "prev": 295,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 366,
+    "label": "7065",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1742,
+        "curr": null
+      },
+      "water": {
+        "prev": 118,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 367,
+    "label": "7064",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1779,
+        "curr": null
+      },
+      "water": {
+        "prev": 141,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 368,
+    "label": "7063",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1016,
+        "curr": null
+      },
+      "water": {
+        "prev": 164,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 369,
+    "label": "7062",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1053,
+        "curr": null
+      },
+      "water": {
+        "prev": 187,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 370,
+    "label": "7061",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1090,
+        "curr": null
+      },
+      "water": {
+        "prev": 210,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 371,
+    "label": "7060",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1127,
+        "curr": null
+      },
+      "water": {
+        "prev": 233,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 372,
+    "label": "7059",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1164,
+        "curr": null
+      },
+      "water": {
+        "prev": 256,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 373,
+    "label": "7058",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1201,
+        "curr": null
+      },
+      "water": {
+        "prev": 279,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 374,
+    "label": "7057",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1238,
+        "curr": null
+      },
+      "water": {
+        "prev": 102,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 375,
+    "label": "7056",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1275,
+        "curr": null
+      },
+      "water": {
+        "prev": 125,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 376,
+    "label": "7055",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1312,
+        "curr": null
+      },
+      "water": {
+        "prev": 148,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 377,
+    "label": "7054",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1349,
+        "curr": null
+      },
+      "water": {
+        "prev": 171,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 378,
+    "label": "7053",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1386,
+        "curr": null
+      },
+      "water": {
+        "prev": 194,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 379,
+    "label": "7052",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1423,
+        "curr": null
+      },
+      "water": {
+        "prev": 217,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 380,
+    "label": "7051",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1460,
+        "curr": null
+      },
+      "water": {
+        "prev": 240,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 381,
+    "label": "7050",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1497,
+        "curr": null
+      },
+      "water": {
+        "prev": 263,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 382,
+    "label": "7049",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1534,
+        "curr": null
+      },
+      "water": {
+        "prev": 286,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 383,
+    "label": "7048",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1571,
+        "curr": null
+      },
+      "water": {
+        "prev": 109,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 384,
+    "label": "7047",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1608,
+        "curr": null
+      },
+      "water": {
+        "prev": 132,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 385,
+    "label": "7046",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1645,
+        "curr": null
+      },
+      "water": {
+        "prev": 155,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 386,
+    "label": "7045",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1682,
+        "curr": null
+      },
+      "water": {
+        "prev": 178,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 387,
+    "label": "7044",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1719,
+        "curr": null
+      },
+      "water": {
+        "prev": 201,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 388,
+    "label": "7043",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1756,
+        "curr": null
+      },
+      "water": {
+        "prev": 224,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 389,
+    "label": "7042",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1793,
+        "curr": null
+      },
+      "water": {
+        "prev": 247,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 390,
+    "label": "7041",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1030,
+        "curr": null
+      },
+      "water": {
+        "prev": 270,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 391,
+    "label": "7040",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1067,
+        "curr": null
+      },
+      "water": {
+        "prev": 293,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 392,
+    "label": "7039",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1104,
+        "curr": null
+      },
+      "water": {
+        "prev": 116,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 393,
+    "label": "7038",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1141,
+        "curr": null
+      },
+      "water": {
+        "prev": 139,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 394,
+    "label": "7037",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1178,
+        "curr": null
+      },
+      "water": {
+        "prev": 162,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 395,
+    "label": "7036",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1215,
+        "curr": null
+      },
+      "water": {
+        "prev": 185,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 396,
+    "label": "7035",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1252,
+        "curr": null
+      },
+      "water": {
+        "prev": 208,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 397,
+    "label": "7034",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1289,
+        "curr": null
+      },
+      "water": {
+        "prev": 231,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 398,
+    "label": "7033",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1326,
+        "curr": null
+      },
+      "water": {
+        "prev": 254,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 399,
+    "label": "7032",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1363,
+        "curr": null
+      },
+      "water": {
+        "prev": 277,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 400,
+    "label": "7031",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1400,
+        "curr": null
+      },
+      "water": {
+        "prev": 100,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 401,
+    "label": "7030",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1437,
+        "curr": null
+      },
+      "water": {
+        "prev": 123,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 402,
+    "label": "7029",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1474,
+        "curr": null
+      },
+      "water": {
+        "prev": 146,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 403,
+    "label": "7028",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1511,
+        "curr": null
+      },
+      "water": {
+        "prev": 169,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 404,
+    "label": "7027",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1548,
+        "curr": null
+      },
+      "water": {
+        "prev": 192,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 405,
+    "label": "7026",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1585,
+        "curr": null
+      },
+      "water": {
+        "prev": 215,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 406,
+    "label": "7025",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1622,
+        "curr": null
+      },
+      "water": {
+        "prev": 238,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 407,
+    "label": "7024",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1659,
+        "curr": null
+      },
+      "water": {
+        "prev": 261,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 408,
+    "label": "7023",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1696,
+        "curr": null
+      },
+      "water": {
+        "prev": 284,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 409,
+    "label": "7022",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1733,
+        "curr": null
+      },
+      "water": {
+        "prev": 107,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 410,
+    "label": "7021",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1770,
+        "curr": null
+      },
+      "water": {
+        "prev": 130,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 411,
+    "label": "7020",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1007,
+        "curr": null
+      },
+      "water": {
+        "prev": 153,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 412,
+    "label": "7019",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1044,
+        "curr": null
+      },
+      "water": {
+        "prev": 176,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 413,
+    "label": "7018",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1081,
+        "curr": null
+      },
+      "water": {
+        "prev": 199,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 414,
+    "label": "7017",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1118,
+        "curr": null
+      },
+      "water": {
+        "prev": 222,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 415,
+    "label": "7016",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1155,
+        "curr": null
+      },
+      "water": {
+        "prev": 245,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 416,
+    "label": "7015",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1192,
+        "curr": null
+      },
+      "water": {
+        "prev": 268,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 417,
+    "label": "7014",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1229,
+        "curr": null
+      },
+      "water": {
+        "prev": 291,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 418,
+    "label": "7013",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1266,
+        "curr": null
+      },
+      "water": {
+        "prev": 114,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 419,
+    "label": "7012",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1303,
+        "curr": null
+      },
+      "water": {
+        "prev": 137,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 420,
+    "label": "7011",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1340,
+        "curr": null
+      },
+      "water": {
+        "prev": 160,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 421,
+    "label": "7010",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1377,
+        "curr": null
+      },
+      "water": {
+        "prev": 183,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 422,
+    "label": "7009",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1414,
+        "curr": null
+      },
+      "water": {
+        "prev": 206,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 423,
+    "label": "7008",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1451,
+        "curr": null
+      },
+      "water": {
+        "prev": 229,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 424,
+    "label": "7007",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1488,
+        "curr": null
+      },
+      "water": {
+        "prev": 252,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 425,
+    "label": "7006",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1525,
+        "curr": null
+      },
+      "water": {
+        "prev": 275,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 426,
+    "label": "7005",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1562,
+        "curr": null
+      },
+      "water": {
+        "prev": 298,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 427,
+    "label": "7004",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1599,
+        "curr": null
+      },
+      "water": {
+        "prev": 121,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 428,
+    "label": "7003",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1636,
+        "curr": null
+      },
+      "water": {
+        "prev": 144,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 429,
+    "label": "7002",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1673,
+        "curr": null
+      },
+      "water": {
+        "prev": 167,
+        "curr": null
+      }
+    }
+  },
+  {
+    "id": 430,
+    "label": "7001",
+    "zone": "Zone_Pyramid",
+    "status": "pending",
+    "meterData": {
+      "elec": {
+        "prev": 1710,
+        "curr": null
+      },
+      "water": {
+        "prev": 190,
+        "curr": null
+      }
+    }
+  }
+]
