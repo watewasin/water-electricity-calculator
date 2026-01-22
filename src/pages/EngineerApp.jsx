@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import villageLayout from '../data/villageMap.json';
 import { calculateElectricityBill, calculateWaterBill } from '../utils/billingCalculator';
 import { imagesAPI, housesAPI, periodsAPI } from '../services/api';
-import { readMeterValue } from '../utils/geminiReader';
 
 export default function EngineerApp() {
     const [step, setStep] = useState(1);
@@ -15,9 +14,6 @@ export default function EngineerApp() {
     const [waterPhoto, setWaterPhoto] = useState(null);
     const [customPeriods, setCustomPeriods] = useState([]);
     const [houses, setHouses] = useState([]);
-    const [isReadingElec, setIsReadingElec] = useState(false);
-    const [isReadingWater, setIsReadingWater] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Load custom periods from API
     useEffect(() => {
@@ -94,66 +90,29 @@ export default function EngineerApp() {
 
     const housesInZone = getHousesInZone();
 
-    const handlePhotoUpload = (e, type) => {
+    const handlePhotoCapture = (e, type) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = (event) => {
-                const base64Image = event.target.result;
                 if (type === 'elec') {
-                    setElecPhoto(base64Image);
-                    setElecReading(''); // Clear previous reading
+                    setElecPhoto(event.target.result);
                 } else {
-                    setWaterPhoto(base64Image);
-                    setWaterReading(''); // Clear previous reading
+                    setWaterPhoto(event.target.result);
                 }
             };
             reader.readAsDataURL(file);
         }
     };
 
-    const handleAIRead = async (type) => {
-        if (type === 'elec' && elecPhoto) {
-            setIsReadingElec(true);
-            try {
-                const reading = await readMeterValue(elecPhoto, 'electricity');
-                setElecReading(reading.toString());
-            } catch (error) {
-                console.error('Failed to read electricity meter:', error);
-                setElecReading('Please enter the value');
-            } finally {
-                setIsReadingElec(false);
-            }
-        } else if (type === 'water' && waterPhoto) {
-            setIsReadingWater(true);
-            try {
-                const reading = await readMeterValue(waterPhoto, 'water');
-                setWaterReading(reading.toString());
-            } catch (error) {
-                console.error('Failed to read water meter:', error);
-                setWaterReading('Please enter the value');
-            } finally {
-                setIsReadingWater(false);
-            }
-        }
-    };
-
-    const validateReading = (reading) => {
-        const number = parseFloat(reading);
-        return !isNaN(number) && number >= 0;
-    };
-
     const handleSubmit = async () => {
-        if (!validateReading(elecReading) || !validateReading(waterReading)) {
-            alert('Please ensure all readings are valid numbers.');
-            return;
-        }
-
-        setIsSubmitting(true);
         try {
+            // 1. Calculate Bills
+            // Treat input as Units Used (Consumption) as per previous logic
             const elecBill = calculateElectricityBill(0, parseInt(elecReading));
             const waterBill = calculateWaterBill(0, parseInt(waterReading));
 
+            // 2. Save Images to Backend API
             if (elecPhoto) {
                 try {
                     await imagesAPI.upload(selectedHouse.label, selectedMonth, 'electricity', elecPhoto);
@@ -169,6 +128,7 @@ export default function EngineerApp() {
                 }
             }
 
+            // 3. Save Data to API
             const houseToUpdate = houses.find(h => h.label === selectedHouse.label);
             if (!houseToUpdate) throw new Error("Selected house not found in state");
 
@@ -178,24 +138,27 @@ export default function EngineerApp() {
                 zone: houseToUpdate.zone,
                 status: 'billed',
                 meterData: {
-                    elec: { prev: houseToUpdate.meterData.elec?.curr || 0, curr: parseInt(elecReading) },
-                    water: { prev: houseToUpdate.meterData.water?.curr || 0, curr: parseInt(waterReading) }
+                    elec: { prev: 0, curr: parseInt(elecReading) },
+                    water: { prev: 0, curr: parseInt(waterReading) }
                 },
                 billData: {
                     elecBill,
                     waterBill,
                     total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
-                    hasImages: !!(elecPhoto || waterPhoto)
+                    hasImages: true // Flag to indicate images exist locally/uploaded
                 }
             };
 
             await housesAPI.saveHouse(updatedHouseData);
 
+            // Update local state
             setHouses(prev => prev.map(h =>
                 h.label === selectedHouse.label ? { ...h, ...updatedHouseData } : h
             ));
 
-            // Reset for next entry and return to house selection page
+            alert('✅ Data submitted successfully!');
+
+            // Reset for next entry but keep zone
             setStep(2);
             setSelectedHouse(null);
             setElecReading('');
@@ -204,32 +167,15 @@ export default function EngineerApp() {
             setWaterPhoto(null);
 
         } catch (error) {
-            console.error('Error submitting data:', error);
-            alert('An error occurred while submitting the data. Please try again.');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
-    const handleAddBillingPeriod = async (newPeriod) => {
-        const existingPeriod = customPeriods.find(period => period.value === newPeriod);
-        if (existingPeriod) {
-            alert('This billing period already exists. Please choose a different year and month.');
-            return;
-        }
-
-        try {
-            await periodsAPI.add(newPeriod);
-            setCustomPeriods(prev => [...prev, { value: newPeriod, label: newPeriod }]);
-            alert('Billing period added successfully.');
-        } catch (error) {
-            console.error('Failed to add billing period:', error);
-            alert('Failed to add billing period. Please try again.');
+            console.error(error);
+            alert('❌ Error saving data');
         }
     };
 
     const canProceedStep2 = selectedZone !== '';
     const canProceedStep3 = selectedHouse !== null;
+    const canProceedStep4 = elecReading !== '' && waterReading !== '';
+    const canSubmit = elecPhoto && waterPhoto; // Require both photos? Assuming yes based on flow.
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
@@ -258,7 +204,7 @@ export default function EngineerApp() {
                 {/* Progress Indicator */}
                 <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
                     <div className="flex justify-between mb-2">
-                        {[1, 2, 3].map(s => (
+                        {[1, 2, 3, 4].map(s => (
                             <div key={s} className="flex flex-col items-center flex-1">
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${step >= s
                                     ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg'
@@ -267,7 +213,7 @@ export default function EngineerApp() {
                                     {s}
                                 </div>
                                 <span className="text-xs text-slate-400 mt-1">
-                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : 'Data'}
+                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : s === 3 ? 'Data' : 'Review'}
                                 </span>
                             </div>
                         ))}
@@ -275,7 +221,7 @@ export default function EngineerApp() {
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
-                            style={{ width: `${(step / 3) * 100}%` }}
+                            style={{ width: `${(step / 4) * 100}%` }}
                         />
                     </div>
                 </div>
@@ -371,11 +317,11 @@ export default function EngineerApp() {
                         </div>
                     )}
 
-                    {/* Step 3: Enter Data with AI */}
+                    {/* Step 3: Enter Data */}
                     {step === 3 && (
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-bold text-white">Meter Readings</h2>
+                                <h2 className="text-xl font-bold text-white">Enter Readings</h2>
                                 <span className="text-sm text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full">
                                     House {selectedHouse?.label}
                                 </span>
@@ -384,158 +330,167 @@ export default function EngineerApp() {
                             {/* Electricity */}
                             <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-amber-400 font-semibold mb-3 flex items-center gap-2">
-                                    <span className="text-xl">⚡</span> Electricity Meter
+                                    <span className="text-xl">⚡</span> Electricity
                                 </h3>
-
-                                {/* Photo Upload First */}
+                                <div>
+                                    <label className="text-slate-400 text-sm block mb-1">Units Used</label>
+                                    <div className="relative mb-3">
+                                        <input
+                                            type="number"
+                                            value={elecReading}
+                                            onChange={(e) => setElecReading(e.target.value)}
+                                            placeholder="Enter reading"
+                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                                        />
+                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">kWh</span>
+                                    </div>
+                                </div>
                                 <input
                                     type="file"
                                     accept="image/*"
                                     capture="environment"
-                                    onChange={(e) => handlePhotoUpload(e, 'elec')}
+                                    onChange={(e) => handlePhotoCapture(e, 'elec')}
                                     className="hidden"
                                     id="elec-photo"
                                 />
-                                {!elecPhoto ? (
-                                    <label htmlFor="elec-photo" className="w-full h-40 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-amber-500 hover:text-amber-400 transition-colors">
-                                        <span className="text-4xl">📷</span>
-                                        <span className="font-medium text-lg">Take Photo of Meter</span>
-                                        <span className="text-xs text-slate-500">AI will read it automatically</span>
-                                    </label>
-                                ) : (
-                                    <div className="space-y-3">
-                                        <div className="relative">
-                                            <img src={elecPhoto} alt="Electricity meter" className="w-full h-40 object-cover rounded-lg" />
-                                            <label htmlFor="elec-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg hover:bg-indigo-500">
-                                                📷 Retake
-                                            </label>
-                                        </div>
-
-                                        {/* AI Reading Status */}
-                                        {isReadingElec ? (
-                                            <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center gap-3">
-                                                <div className="animate-spin text-2xl">🤖</div>
-                                                <div>
-                                                    <div className="text-amber-400 font-medium">AI is reading the meter...</div>
-                                                    <div className="text-slate-400 text-xs">This may take a few seconds</div>
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <div>
-                                                <label className="text-slate-400 text-sm block mb-1">Reading (kWh) - Edit if needed</label>
-                                                <div className="relative">
-                                                    <input
-                                                        type="number"
-                                                        value={elecReading}
-                                                        onChange={(e) => setElecReading(e.target.value)}
-                                                        placeholder="AI reading will appear here"
-                                                        className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
-                                                    />
-                                                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">kWh</span>
-                                                </div>
-                                            </div>
-                                        )}
+                                {elecPhoto ? (
+                                    <div className="relative">
+                                        <img src={elecPhoto} alt="Electricity meter" className="w-full h-40 object-cover rounded-lg" />
+                                        <label htmlFor="elec-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
+                                            📷 Retake
+                                        </label>
                                     </div>
-                                )}
-                                {elecPhoto && (
-                                    <button
-                                        onClick={() => handleAIRead('elec')}
-                                        className="mt-2 py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
-                                    >
-                                        Read Electricity Meter
-                                    </button>
+                                ) : (
+                                    <label htmlFor="elec-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-amber-500 hover:text-amber-400">
+                                        <span className="text-3xl">📷</span>
+                                        <span className="font-medium">Take Photo</span>
+                                    </label>
                                 )}
                             </div>
 
                             {/* Water */}
-                            <div className="bg-slate-700/50 rounded-xl p-4 mb-6 border border-slate-600">
+                            <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
-                                    <span className="text-xl">💧</span> Water Meter
+                                    <span className="text-xl">💧</span> Water
                                 </h3>
-
-                                {/* Photo Upload First */}
+                                <div>
+                                    <label className="text-slate-400 text-sm block mb-1">Units Used</label>
+                                    <div className="relative mb-3">
+                                        <input
+                                            type="number"
+                                            value={waterReading}
+                                            onChange={(e) => setWaterReading(e.target.value)}
+                                            placeholder="Enter reading"
+                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
+                                        />
+                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">m³</span>
+                                    </div>
+                                </div>
                                 <input
                                     type="file"
                                     accept="image/*"
                                     capture="environment"
-                                    onChange={(e) => handlePhotoUpload(e, 'water')}
+                                    onChange={(e) => handlePhotoCapture(e, 'water')}
                                     className="hidden"
                                     id="water-photo"
                                 />
-                                {!waterPhoto ? (
-                                    <label htmlFor="water-photo" className="w-full h-40 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-cyan-500 hover:text-cyan-400 transition-colors">
-                                        <span className="text-4xl">📷</span>
-                                        <span className="font-medium text-lg">Take Photo of Meter</span>
-                                        <span className="text-xs text-slate-500">AI will read it automatically</span>
-                                    </label>
-                                ) : (
-                                    <div className="space-y-3">
-                                        <div className="relative">
-                                            <img src={waterPhoto} alt="Water meter" className="w-full h-40 object-cover rounded-lg" />
-                                            <label htmlFor="water-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg hover:bg-indigo-500">
-                                                📷 Retake
-                                            </label>
-                                        </div>
-
-                                        {/* AI Reading Status */}
-                                        {isReadingWater ? (
-                                            <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-3 flex items-center gap-3">
-                                                <div className="animate-spin text-2xl">🤖</div>
-                                                <div>
-                                                    <div className="text-cyan-400 font-medium">AI is reading the meter...</div>
-                                                    <div className="text-slate-400 text-xs">This may take a few seconds</div>
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <div>
-                                                <label className="text-slate-400 text-sm block mb-1">Reading (m³) - Edit if needed</label>
-                                                <div className="relative">
-                                                    <input
-                                                        type="number"
-                                                        value={waterReading}
-                                                        onChange={(e) => setWaterReading(e.target.value)}
-                                                        placeholder="AI reading will appear here"
-                                                        className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
-                                                    />
-                                                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">m³</span>
-                                                </div>
-                                            </div>
-                                        )}
+                                {waterPhoto ? (
+                                    <div className="relative">
+                                        <img src={waterPhoto} alt="Water meter" className="w-full h-40 object-cover rounded-lg" />
+                                        <label htmlFor="water-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
+                                            📷 Retake
+                                        </label>
                                     </div>
-                                )}
-                                {waterPhoto && (
-                                    <button
-                                        onClick={() => handleAIRead('water')}
-                                        className="mt-2 py-2 px-4 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500"
-                                    >
-                                        Read Water Meter
-                                    </button>
+                                ) : (
+                                    <label htmlFor="water-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-cyan-500 hover:text-cyan-400">
+                                        <span className="text-3xl">📷</span>
+                                        <span className="font-medium">Take Photo</span>
+                                    </label>
                                 )}
                             </div>
 
-                            {/* Action Buttons */}
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => setStep(2)}
                                     className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
-                                    disabled={isSubmitting}
                                 >
                                     ← Back
                                 </button>
                                 <button
-                                    onClick={handleSubmit}
-                                    disabled={!elecReading || !waterReading || isSubmitting || isReadingElec || isReadingWater}
-                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${(!elecReading || !waterReading || isSubmitting || isReadingElec || isReadingWater)
-                                        ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                        : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
+                                    onClick={() => setStep(4)}
+                                    disabled={!canProceedStep4}
+                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canProceedStep4
+                                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
+                                        : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                                         }`}
                                 >
-                                    {isSubmitting ? '⏳ Submitting...' : '✓ Submit'}
+                                    Review →
                                 </button>
                             </div>
                         </div>
                     )}
 
+                    {/* Step 4: Review */}
+                    {step === 4 && (
+                        <div className="p-6">
+                            <h2 className="text-xl font-bold text-white mb-4">Review & Submit</h2>
+
+                            <div className="space-y-4 mb-6">
+                                <div className="bg-slate-700/50 rounded-lg p-4 flex justify-between items-center">
+                                    <div>
+                                        <div className="text-slate-400 text-sm mb-1">Location</div>
+                                        <div className="text-white font-semibold">
+                                            {selectedZone} • House {selectedHouse?.label}
+                                        </div>
+                                    </div>
+                                    <div className="text-indigo-400 text-sm">{selectedMonth}</div>
+                                </div>
+
+                                <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+                                    <div className="text-amber-400 font-semibold mb-2 flex items-center gap-2">
+                                        <span>⚡</span> Electricity
+                                    </div>
+                                    <div className="text-white font-mono text-2xl mb-3">{elecReading}</div>
+                                    {elecPhoto && (
+                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
+                                            <img src={elecPhoto} alt="Electricity meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
+                                    <div className="text-cyan-400 font-semibold mb-2 flex items-center gap-2">
+                                        <span>💧</span> Water
+                                    </div>
+                                    <div className="text-white font-mono text-2xl mb-3">{waterReading}</div>
+                                    {waterPhoto && (
+                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
+                                            <img src={waterPhoto} alt="Water meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={() => setStep(3)}
+                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
+                                >
+                                    ← Edit
+                                </button>
+                                <button
+                                    onClick={handleSubmit}
+                                    disabled={!canSubmit}
+                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canSubmit
+                                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
+                                        : 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                                        }`}
+                                >
+                                    ✓ Submit
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
