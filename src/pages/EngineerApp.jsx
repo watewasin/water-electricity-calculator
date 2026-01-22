@@ -236,26 +236,16 @@ export default function EngineerApp() {
                                 {displayZones.map(zone => (
                                     <button
                                         key={zone}
-                                        onClick={() => setSelectedZone(zone)}
-                                        className={`p-4 rounded-xl font-semibold transition-all ${selectedZone === zone
-                                            ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg scale-105'
-                                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                                            }`}
+                                        onClick={() => {
+                                            setSelectedZone(zone);
+                                            setStep(2);
+                                        }}
+                                        className="p-4 rounded-xl font-semibold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 active:bg-indigo-500 active:text-white"
                                     >
                                         {zone}
                                     </button>
                                 ))}
                             </div>
-                            <button
-                                onClick={() => setStep(2)}
-                                disabled={!canProceedStep2}
-                                className={`w-full mt-6 py-4 rounded-xl font-bold text-lg transition-all ${canProceedStep2
-                                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
-                                    : 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                    }`}
-                            >
-                                Next →
-                            </button>
                         </div>
                     )}
 
@@ -301,6 +291,8 @@ export default function EngineerApp() {
                                                 setElecPhoto(null);
                                                 setWaterPhoto(null);
                                             }
+                                            // Auto-advance to step 3
+                                            setStep(3);
                                         }}
                                         className={`p-3 rounded-lg font-bold transition-all relative overflow-hidden ${selectedHouse?.id === house.id
                                             ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg scale-105'
@@ -316,24 +308,12 @@ export default function EngineerApp() {
                                     </button>
                                 ))}
                             </div>
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={() => setStep(1)}
-                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
-                                >
-                                    ← Back
-                                </button>
-                                <button
-                                    onClick={() => setStep(3)}
-                                    disabled={!canProceedStep3}
-                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canProceedStep3
-                                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
-                                        : 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                        }`}
-                                >
-                                    Next →
-                                </button>
-                            </div>
+                            <button
+                                onClick={() => setStep(1)}
+                                className="w-full py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
+                            >
+                                ← Back to Zones
+                            </button>
                         </div>
                     )}
 
