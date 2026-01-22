@@ -225,15 +225,15 @@ export default function SummarySidebar({ houses, selectedMonth }) {
 
             {/* Legend */}
             <div className="mt-auto pt-6 border-t border-slate-700">
-                <h3 className="text-white font-semibold mb-3">Legend</h3>
+                <h3 className="text-white font-semibold mb-3"></h3>
                 <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-gradient-to-br from-red-500 to-red-700" />
-                        <span className="text-slate-300">🔴 Pending - No reading entered</span>
+                        <div className="w-4 h-4 rounded bg-gradient-to-br from-white-500 to-white-700" />
+                        <span className="text-slate-300"> Pending - No reading entered</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-4 h-4 rounded bg-gradient-to-br from-emerald-500 to-emerald-700" />
-                        <span className="text-slate-300">🟢 Billed - Readings saved</span>
+                        <span className="text-slate-300"> Billed - Readings saved</span>
                     </div>
                 </div>
             </div>
