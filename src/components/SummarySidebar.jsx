@@ -158,7 +158,7 @@ export default function SummarySidebar({ houses, selectedMonth }) {
             </button>
 
             <div>
-                <h2 className="text-xl font-bold text-white mb-2">📊 Summary</h2>
+                <h2 className="text-xl font-bold text-white mb-2">Summary</h2>
                 <p className="text-slate-400 text-sm">{selectedMonth}</p>
             </div>
 

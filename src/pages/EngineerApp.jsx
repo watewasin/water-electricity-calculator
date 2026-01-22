@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import villageLayout from '../data/villageMap.json';
+import VillageMap from '../components/VillageMap';
 import { calculateElectricityBill, calculateWaterBill } from '../utils/billingCalculator';
 import { imagesAPI, housesAPI, periodsAPI } from '../services/api';
 import { readMeterValue } from '../utils/geminiReader';
@@ -21,6 +22,7 @@ export default function EngineerApp() {
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'pending', 'billed'
     const [highlightedHouse, setHighlightedHouse] = useState(null);
+    const [mapZoom, setMapZoom] = useState(1); // For map zoom
 
     // Load custom periods from API
     useEffect(() => {
@@ -245,11 +247,59 @@ export default function EngineerApp() {
     const canProceedStep2 = selectedZone !== '';
     const canProceedStep3 = selectedHouse !== null;
 
+    const handleMapZoom = (e) => {
+        e.preventDefault();
+        const delta = e.deltaY > 0 ? 0.9 : 1.1;
+        setMapZoom(prev => Math.max(0.5, Math.min(3, prev * delta)));
+    };
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
-            <div className="max-w-md mx-auto">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col lg:flex-row gap-4 p-4">
+            {/* Left Side: Zoomable Map Area */}
+            <div className="hidden lg:block lg:flex-1 bg-slate-800/50 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+                <div
+                    className="w-full h-full overflow-auto"
+                    onWheel={handleMapZoom}
+                    style={{ cursor: 'grab' }}
+                >
+                    <div
+                        style={{
+                            transform: `scale(${mapZoom})`,
+                            transformOrigin: 'top left',
+                            transition: 'transform 0.1s ease-out',
+                        }}
+                    >
+                        <VillageMap houses={houses} onHouseClick={(house) => {
+                            setSelectedHouse(house);
+                            setStep(3);
+                        }} />
+                    </div>
+                </div>
+
+                {/* Zoom Controls */}
+                <div className="absolute bottom-4 right-4 bg-slate-900/90 rounded-lg border border-slate-600 shadow-lg">
+                    <button
+                        onClick={() => setMapZoom(prev => Math.max(0.5, prev - 0.2))}
+                        className="block w-10 h-10 flex items-center justify-center hover:bg-slate-700 text-white font-bold border-b border-slate-600"
+                    >
+                        −
+                    </button>
+                    <div className="px-3 py-1 text-center text-sm text-slate-300 font-mono bg-slate-800">
+                        {(mapZoom * 100).toFixed(0)}%
+                    </div>
+                    <button
+                        onClick={() => setMapZoom(prev => Math.min(3, prev + 0.2))}
+                        className="block w-10 h-10 flex items-center justify-center hover:bg-slate-700 text-white font-bold"
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+
+            {/* Right Side: Scrollable Dashboard */}
+            <div className="w-full lg:w-96 flex flex-col">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 shadow-2xl flex justify-between items-center sticky top-4 z-50">
+                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-4 shadow-2xl flex justify-between items-center">
                     <div>
                         <h1 className="text-2xl font-bold text-white mb-2">📱 Engineer Portal</h1>
                         <p className="text-indigo-200 text-sm">Meter Reading Entry System</p>
@@ -270,7 +320,7 @@ export default function EngineerApp() {
                 </div>
 
                 {/* Progress Indicator */}
-                <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
+                <div className="bg-slate-800/50 rounded-xl p-4 mb-4 border border-slate-700">
                     <div className="flex justify-between mb-2">
                         {[1, 2, 3].map(s => (
                             <div key={s} className="flex flex-col items-center flex-1">
@@ -294,8 +344,8 @@ export default function EngineerApp() {
                     </div>
                 </div>
 
-                {/* Step Content */}
-                <div className="bg-slate-800/50 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+                {/* Scrollable Content Area */}
+                <div className="flex-1 overflow-y-auto bg-slate-800/50 rounded-2xl border border-slate-700 shadow-2xl">
                     {/* Step 1: Select Zone */}
                     {step === 1 && (
                         <div className="p-6">
@@ -658,7 +708,6 @@ export default function EngineerApp() {
                             </div>
                         </div>
                     )}
-
                 </div>
             </div>
         </div>
