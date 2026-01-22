@@ -176,22 +176,6 @@ export default function SummarySidebar({ houses, selectedMonth }) {
                     <p className="text-red-400 text-xs uppercase tracking-wide">Pending</p>
                     <p className="text-2xl font-bold text-red-400">{pendingHouses.length}</p>
                 </div>
-                <div className="bg-indigo-500/10 rounded-xl p-4 border border-indigo-500/30">
-                    <p className="text-indigo-400 text-xs uppercase tracking-wide">Progress</p>
-                    <p className="text-2xl font-bold text-indigo-400">
-                        {houses.length > 0 ? Math.round((billedHouses.length / houses.length) * 100) : 0}%
-                    </p>
-                </div>
-            </div>
-
-            {/* Progress Bar */}
-            <div>
-                <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                    <div
-                        className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-500"
-                        style={{ width: `${houses.length > 0 ? (billedHouses.length / houses.length) * 100 : 0}%` }}
-                    />
-                </div>
             </div>
 
             {/* Collection Breakdown */}
