@@ -391,7 +391,7 @@ export default function EngineerApp() {
                                 }}
                                 className="w-full py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors"
                             >
-                                ← Back to Zones
+                                ← Back
                             </button>
                         </div>
                     )}
@@ -531,7 +531,7 @@ export default function EngineerApp() {
                                     className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors"
                                     disabled={isSubmitting}
                                 >
-                                    ← Back to House Selection
+                                    ← Back
                                 </button>
                                 <button
                                     onClick={handleSubmit}
