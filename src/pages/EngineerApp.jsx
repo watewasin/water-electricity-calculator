@@ -175,7 +175,6 @@ export default function EngineerApp() {
     const canProceedStep2 = selectedZone !== '';
     const canProceedStep3 = selectedHouse !== null;
     const canProceedStep4 = elecReading !== '' && waterReading !== '';
-    const canSubmit = elecPhoto && waterPhoto; // Require both photos? Assuming yes based on flow.
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
@@ -204,7 +203,7 @@ export default function EngineerApp() {
                 {/* Progress Indicator */}
                 <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
                     <div className="flex justify-between mb-2">
-                        {[1, 2, 3, 4].map(s => (
+                        {[1, 2, 3].map(s => (
                             <div key={s} className="flex flex-col items-center flex-1">
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${step >= s
                                     ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg'
@@ -213,7 +212,7 @@ export default function EngineerApp() {
                                     {s}
                                 </div>
                                 <span className="text-xs text-slate-400 mt-1">
-                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : s === 3 ? 'Data' : 'Review'}
+                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : 'Data'}
                                 </span>
                             </div>
                         ))}
@@ -221,7 +220,7 @@ export default function EngineerApp() {
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
-                            style={{ width: `${(step / 4) * 100}%` }}
+                            style={{ width: `${(step / 3) * 100}%` }}
                         />
                     </div>
                 </div>
@@ -417,76 +416,14 @@ export default function EngineerApp() {
                                     ← Back
                                 </button>
                                 <button
-                                    onClick={() => setStep(4)}
+                                    onClick={handleSubmit}
                                     disabled={!canProceedStep4}
                                     className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canProceedStep4
                                         ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
                                         : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                                         }`}
                                 >
-                                    Review →
-                                </button>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Step 4: Review */}
-                    {step === 4 && (
-                        <div className="p-6">
-                            <h2 className="text-xl font-bold text-white mb-4">Review & Submit</h2>
-
-                            <div className="space-y-4 mb-6">
-                                <div className="bg-slate-700/50 rounded-lg p-4 flex justify-between items-center">
-                                    <div>
-                                        <div className="text-slate-400 text-sm mb-1">Location</div>
-                                        <div className="text-white font-semibold">
-                                            {selectedZone} • House {selectedHouse?.label}
-                                        </div>
-                                    </div>
-                                    <div className="text-indigo-400 text-sm">{selectedMonth}</div>
-                                </div>
-
-                                <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-                                    <div className="text-amber-400 font-semibold mb-2 flex items-center gap-2">
-                                        <span>⚡</span> Electricity
-                                    </div>
-                                    <div className="text-white font-mono text-2xl mb-3">{elecReading}</div>
-                                    {elecPhoto && (
-                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
-                                            <img src={elecPhoto} alt="Electricity meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
-                                    <div className="text-cyan-400 font-semibold mb-2 flex items-center gap-2">
-                                        <span>💧</span> Water
-                                    </div>
-                                    <div className="text-white font-mono text-2xl mb-3">{waterReading}</div>
-                                    {waterPhoto && (
-                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
-                                            <img src={waterPhoto} alt="Water meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={() => setStep(3)}
-                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
-                                >
-                                    ← Edit
-                                </button>
-                                <button
-                                    onClick={handleSubmit}
-                                    disabled={!canSubmit}
-                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canSubmit
-                                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
-                                        : 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                        }`}
-                                >
-                                    ✓ Submit
+                                    Submit
                                 </button>
                             </div>
                         </div>
