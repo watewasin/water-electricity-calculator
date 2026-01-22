@@ -171,14 +171,14 @@ export default function EngineerApp() {
                 zone: houseToUpdate.zone,
                 status: 'billed',
                 meterData: {
-                    elec: { prev: 0, curr: parseInt(elecReading) },
-                    water: { prev: 0, curr: parseInt(waterReading) }
+                    elec: { prev: houseToUpdate.meterData.elec?.curr || 0, curr: parseInt(elecReading) },
+                    water: { prev: houseToUpdate.meterData.water?.curr || 0, curr: parseInt(waterReading) }
                 },
                 billData: {
                     elecBill,
                     waterBill,
                     total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
-                    hasImages: true
+                    hasImages: !!(elecPhoto || waterPhoto)
                 }
             };
 
