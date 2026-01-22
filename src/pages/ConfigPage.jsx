@@ -105,12 +105,12 @@ export default function ConfigPage() {
         <div className="min-h-screen bg-slate-900 text-white">
             {/* Header */}
             <div className="bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center">
-                <h1 className="text-3xl font-bold">⚙️ Configure Billing Rates</h1>
+                <h1 className="text-3xl font-bold">Configure Billing Rates</h1>
                 <button
                     onClick={() => window.location.hash = ''}
                     className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 >
-                    ← Back to Dashboard
+                    Back to Dashboard
                 </button>
             </div>
 
@@ -119,7 +119,7 @@ export default function ConfigPage() {
                 <div className="space-y-8">
                     {/* Electricity Rates Section */}
                     <div>
-                        <h2 className="text-amber-400 font-bold text-2xl mb-4">⚡ Electricity Rates</h2>
+                        <h2 className="text-amber-400 font-bold text-2xl mb-4">Electricity Rates</h2>
                         <div className="space-y-4 bg-slate-800/50 p-6 rounded-xl">
                             <div className="grid grid-cols-3 gap-4">
                                 <div>
@@ -190,7 +190,7 @@ export default function ConfigPage() {
 
                     {/* Water Rates Section */}
                     <div>
-                        <h2 className="text-cyan-400 font-bold text-2xl mb-4">💧 Water Rates</h2>
+                        <h2 className="text-cyan-400 font-bold text-2xl mb-4">Water Rates</h2>
                         <div className="space-y-4 bg-slate-800/50 p-6 rounded-xl">
                             <div className="grid grid-cols-4 gap-4">
                                 <div>
@@ -314,7 +314,7 @@ export default function ConfigPage() {
                         onClick={handleSave}
                         className="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white rounded-xl font-bold text-lg transition-colors"
                     >
-                        💾 Save Rates
+                        Save Rates
                     </button>
                 </div>
             </div>

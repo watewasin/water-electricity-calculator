@@ -151,16 +151,16 @@ function App() {
       <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            🏘️ Village Utility Dashboard
+            Village Utility Dashboard
           </h1>
           <p className="text-slate-400 text-sm">Thai PEA Electricity & Water Billing System</p>
         </div>
         <div className="flex gap-4 items-center">
           <a
             href="#engineer"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
           >
-            📱 Engineer Mode
+            Engineer Mode
           </a>
           <MonthSelector selectedMonth={selectedMonth} onChange={setSelectedMonth} />
         </div>
