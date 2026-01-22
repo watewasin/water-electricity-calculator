@@ -156,8 +156,6 @@ export default function EngineerApp() {
                 h.label === selectedHouse.label ? { ...h, ...updatedHouseData } : h
             ));
 
-            alert('✅ Data submitted successfully!');
-
             // Reset for next entry but keep zone
             setStep(2);
             setSelectedHouse(null);
