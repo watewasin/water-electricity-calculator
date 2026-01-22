@@ -30,41 +30,55 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Updated color scheme */
+/* Clean, modern dark background - NO grid pattern */
 body {
-    background-color: #4E3629; /* Dark brown */
-    color: #FFFFFF; /* White text for contrast */
+    background-color: #0f172a; /* Slate-950 for clean dark background */
+    color: #f1f5f9; /* Slate-100 for excellent text contrast */
 }
 
-button {
-    background-color: #D2B48C; /* Light brown */
-    color: #000000; /* Black text for contrast */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Ensure links have good contrast */
+a {
+    color: #60a5fa; /* Blue-400 */
 }
 
-button:hover {
-    background-color: #C19A6B; /* Slightly darker light brown */
+a:hover {
+    color: #93c5fd; /* Blue-300 */
 }
 
-/* Update other elements to match the new color scheme */
-header {
-    background-color: #4E3629; /* Dark brown */
-    border-bottom: 1px solid #3E2C23; /* Slightly darker brown */
-}
-
-input {
-    background-color: #4E3629; /* Dark brown */
-    color: #FFFFFF; /* White text */
-    border: 1px solid #3E2C23; /* Slightly darker brown */
+/* Improve input field contrast and accessibility */
+input, textarea, select {
+    background-color: #1e293b; /* Slate-800 */
+    color: #f1f5f9; /* Slate-100 */
+    border: 1px solid #334155; /* Slate-700 */
     padding: 10px;
     border-radius: 5px;
+    transition: all 0.2s ease;
 }
 
-input:focus {
-    border-color: #D2B48C; /* Light brown */
+input:focus, textarea:focus, select:focus {
+    border-color: #60a5fa; /* Blue-400 */
     outline: none;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+/* Improve button contrast */
+button {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Header styling */
+header {
+    background-color: #0f172a; /* Dark clean background */
+    border-bottom: 1px solid #1e293b;
+}
+
+/* Ensure sufficient color contrast for all text elements */
+h1, h2, h3, h4, h5, h6 {
+    color: #f1f5f9; /* Ensure high contrast headings */
 }

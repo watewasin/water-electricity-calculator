@@ -18,6 +18,9 @@ export default function EngineerApp() {
     const [isReadingElec, setIsReadingElec] = useState(false);
     const [isReadingWater, setIsReadingWater] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'pending', 'billed'
+    const [highlightedHouse, setHighlightedHouse] = useState(null);
 
     // Load custom periods from API
     useEffect(() => {
@@ -84,12 +87,23 @@ export default function EngineerApp() {
     // Get houses for selected zone from local state
     const getHousesInZone = () => {
         if (!selectedZone) return [];
-        return houses
+        let filtered = houses
             .filter(h => {
                 const mappedZones = ZONE_MAPPING[selectedZone];
                 return mappedZones && mappedZones.includes(h.zone);
-            })
-            .sort((a, b) => a.label.localeCompare(b.label));
+            });
+
+        // Apply status filter
+        if (statusFilter !== 'all') {
+            filtered = filtered.filter(h => h.status === statusFilter);
+        }
+
+        // Apply search filter
+        if (searchQuery.trim()) {
+            filtered = filtered.filter(h => h.label.toString().includes(searchQuery.trim()));
+        }
+
+        return filtered.sort((a, b) => a.label.localeCompare(b.label));
     };
 
     const housesInZone = getHousesInZone();
@@ -235,7 +249,7 @@ export default function EngineerApp() {
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
             <div className="max-w-md mx-auto">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 shadow-2xl flex justify-between items-center">
+                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 shadow-2xl flex justify-between items-center sticky top-4 z-50">
                     <div>
                         <h1 className="text-2xl font-bold text-white mb-2">📱 Engineer Portal</h1>
                         <p className="text-indigo-200 text-sm">Meter Reading Entry System</p>
@@ -244,7 +258,7 @@ export default function EngineerApp() {
                         <select
                             value={selectedMonth}
                             onChange={(e) => setSelectedMonth(e.target.value)}
-                            className="bg-white/20 border border-white/30 rounded px-2 py-1 text-white text-sm outline-none cursor-pointer"
+                            className="bg-white/20 border border-white/30 rounded px-2 py-1 text-white text-sm outline-none cursor-pointer hover:bg-white/30"
                         >
                             {allMonths.map(m => (
                                 <option key={m.value} value={m.value} className="text-black">
@@ -285,86 +299,190 @@ export default function EngineerApp() {
                     {/* Step 1: Select Zone */}
                     {step === 1 && (
                         <div className="p-6">
-                            <h2 className="text-xl font-bold text-white mb-4">Select Zone</h2>
+                            <h2 className="text-xl font-bold text-white mb-2">Select Zone</h2>
+                            <p className="text-slate-400 text-sm mb-6">Choose a zone to start entering meter readings</p>
                             <div className="grid grid-cols-2 gap-3">
-                                {displayZones.map(zone => (
-                                    <button
-                                        key={zone}
-                                        onClick={() => {
-                                            setSelectedZone(zone);
-                                            setStep(2);
-                                        }}
-                                        className="p-4 rounded-xl font-semibold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 active:bg-indigo-500 active:text-white"
-                                    >
-                                        {zone}
-                                    </button>
-                                ))}
+                                {displayZones.map(zone => {
+                                    const zoneCount = houses.filter(h => {
+                                        const mappedZones = ZONE_MAPPING[zone];
+                                        return mappedZones && mappedZones.includes(h.zone);
+                                    }).length;
+                                    const zonePending = houses.filter(h => {
+                                        const mappedZones = ZONE_MAPPING[zone];
+                                        return mappedZones && mappedZones.includes(h.zone) && h.status === 'pending';
+                                    }).length;
+
+                                    return (
+                                        <button
+                                            key={zone}
+                                            onClick={() => {
+                                                setSelectedZone(zone);
+                                                setSearchQuery('');
+                                                setStatusFilter('all');
+                                                setHighlightedHouse(null);
+                                                setStep(2);
+                                            }}
+                                            className="p-4 rounded-xl font-semibold transition-all bg-gradient-to-br from-indigo-600 to-indigo-700 text-white hover:from-indigo-500 hover:to-indigo-600 shadow-lg hover:shadow-xl active:scale-95"
+                                        >
+                                            <div className="text-lg mb-1">{zone}</div>
+                                            <div className="text-xs text-indigo-200">
+                                                {zonePending} of {zoneCount} pending
+                                            </div>
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
 
                     {/* Step 2: Select House */}
                     {step === 2 && (
-                        <div className="p-6">
-                            <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-bold text-white">Select House</h2>
-                                <span className="text-sm text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full">
-                                    {selectedZone}
-                                </span>
-                            </div>
-                            <div className="grid grid-cols-3 gap-2 max-h-96 overflow-y-auto mb-4">
-                                {housesInZone.map(house => (
-                                    <button
-                                        key={house.id}
-                                        onClick={() => {
-                                            setSelectedHouse(house);
-                                            // Prefill data if available
-                                            if (house.status === 'billed' && house.meterData) {
-                                                setElecReading(house.meterData.elec?.curr?.toString() || '');
-                                                setWaterReading(house.meterData.water?.curr?.toString() || '');
+                        <div className="p-6 flex flex-col h-[calc(100vh-280px)]">
+                            {/* Header with Zone Info */}
+                            <div className="mb-4">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h2 className="text-xl font-bold text-white">Select House</h2>
+                                    <span className="text-sm text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full font-semibold">
+                                        {selectedZone}
+                                    </span>
+                                </div>
 
-                                                // Load images for this house
-                                                const loadImages = async () => {
-                                                    try {
-                                                        const elec = await imagesAPI.get(house.label, selectedMonth, 'electricity');
-                                                        if (elec?.imageData) setElecPhoto(elec.imageData);
-                                                        else setElecPhoto(null);
-                                                    } catch (e) { setElecPhoto(null); }
-
-                                                    try {
-                                                        const water = await imagesAPI.get(house.label, selectedMonth, 'water');
-                                                        if (water?.imageData) setWaterPhoto(water.imageData);
-                                                        else setWaterPhoto(null);
-                                                    } catch (e) { setWaterPhoto(null); }
-                                                };
-                                                loadImages();
+                                {/* Search Bar */}
+                                <div className="mb-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Search house number..."
+                                        value={searchQuery}
+                                        onChange={(e) => {
+                                            setSearchQuery(e.target.value);
+                                            if (e.target.value.trim()) {
+                                                const found = houses.find(h => h.label.toString() === e.target.value.trim());
+                                                setHighlightedHouse(found?.id || null);
                                             } else {
-                                                // Reset if not billed
-                                                setElecReading('');
-                                                setWaterReading('');
-                                                setElecPhoto(null);
-                                                setWaterPhoto(null);
+                                                setHighlightedHouse(null);
                                             }
-                                            // Auto-advance to step 3
-                                            setStep(3);
                                         }}
-                                        className={`p-3 rounded-lg font-bold transition-all relative overflow-hidden ${selectedHouse?.id === house.id
-                                            ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg scale-105'
-                                            : house.status === 'billed'
-                                                ? 'bg-emerald-900/50 text-emerald-200 border border-emerald-500/30'
-                                                : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                        className="w-full bg-slate-700 border-2 border-slate-600 rounded-lg px-4 py-2.5 text-white placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none text-sm font-medium transition-all"
+                                    />
+                                </div>
+
+                                {/* Status Filters */}
+                                <div className="flex gap-2 mb-3">
+                                    <button
+                                        onClick={() => {
+                                            setStatusFilter('all');
+                                            setSearchQuery('');
+                                            setHighlightedHouse(null);
+                                        }}
+                                        className={`flex-1 py-2 rounded-lg font-medium text-sm transition-all ${statusFilter === 'all'
+                                            ? 'bg-indigo-500 text-white shadow-lg'
+                                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                                             }`}
                                     >
-                                        {house.label}
-                                        {house.status === 'billed' && (
-                                            <span className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] px-1 rounded-bl">✓</span>
-                                        )}
+                                        All ({housesInZone.length})
                                     </button>
-                                ))}
+                                    <button
+                                        onClick={() => {
+                                            setStatusFilter('pending');
+                                            setSearchQuery('');
+                                            setHighlightedHouse(null);
+                                        }}
+                                        className={`flex-1 py-2 rounded-lg font-medium text-sm transition-all ${statusFilter === 'pending'
+                                            ? 'bg-blue-500 text-white shadow-lg'
+                                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                            }`}
+                                    >
+                                        ⏳ Pending ({houses.filter(h => h.zone === ZONE_MAPPING[selectedZone]?.[0] && h.status === 'pending').length})
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setStatusFilter('billed');
+                                            setSearchQuery('');
+                                            setHighlightedHouse(null);
+                                        }}
+                                        className={`flex-1 py-2 rounded-lg font-medium text-sm transition-all ${statusFilter === 'billed'
+                                            ? 'bg-emerald-500 text-white shadow-lg'
+                                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                            }`}
+                                    >
+                                        ✓ Done ({houses.filter(h => h.zone === ZONE_MAPPING[selectedZone]?.[0] && h.status === 'billed').length})
+                                    </button>
+                                </div>
                             </div>
+
+                            {/* Houses Grid - Scrollable */}
+                            <div className="flex-1 overflow-y-auto mb-4 pr-2 bg-slate-700/30 rounded-lg p-4">
+                                {housesInZone.length > 0 ? (
+                                    <div className="grid grid-cols-4 gap-2">
+                                        {housesInZone.map(house => (
+                                            <button
+                                                key={house.id}
+                                                onClick={() => {
+                                                    setSelectedHouse(house);
+                                                    // Prefill data if available
+                                                    if (house.status === 'billed' && house.meterData) {
+                                                        setElecReading(house.meterData.elec?.curr?.toString() || '');
+                                                        setWaterReading(house.meterData.water?.curr?.toString() || '');
+
+                                                        // Load images for this house
+                                                        const loadImages = async () => {
+                                                            try {
+                                                                const elec = await imagesAPI.get(house.label, selectedMonth, 'electricity');
+                                                                if (elec?.imageData) setElecPhoto(elec.imageData);
+                                                                else setElecPhoto(null);
+                                                            } catch (e) { setElecPhoto(null); }
+
+                                                            try {
+                                                                const water = await imagesAPI.get(house.label, selectedMonth, 'water');
+                                                                if (water?.imageData) setWaterPhoto(water.imageData);
+                                                                else setWaterPhoto(null);
+                                                            } catch (e) { setWaterPhoto(null); }
+                                                        };
+                                                        loadImages();
+                                                    } else {
+                                                        // Reset if not billed
+                                                        setElecReading('');
+                                                        setWaterReading('');
+                                                        setElecPhoto(null);
+                                                        setWaterPhoto(null);
+                                                    }
+                                                    // Auto-advance to step 3
+                                                    setStep(3);
+                                                }}
+                                                className={`p-3 rounded-lg font-bold text-sm transition-all relative overflow-hidden ${highlightedHouse === house.id
+                                                    ? 'ring-2 ring-yellow-400 scale-110'
+                                                    : selectedHouse?.id === house.id
+                                                        ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg scale-105'
+                                                        : house.status === 'billed'
+                                                            ? 'bg-emerald-900/50 text-emerald-100 border-2 border-emerald-500/50 hover:border-emerald-400'
+                                                            : 'bg-slate-700 text-slate-200 hover:bg-slate-600'
+                                                    }`}
+                                            >
+                                                {house.label}
+                                                {house.status === 'billed' && (
+                                                    <span className="absolute top-1 right-1 bg-emerald-500 text-white text-[9px] px-1 rounded">✓</span>
+                                                )}
+                                            </button>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-col items-center justify-center h-full text-slate-400">
+                                        <div className="text-3xl mb-2">🔍</div>
+                                        <p className="font-medium">No houses found</p>
+                                        <p className="text-sm">Try different search or filter</p>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Back Button */}
                             <button
-                                onClick={() => setStep(1)}
-                                className="w-full py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
+                                onClick={() => {
+                                    setStep(1);
+                                    setSearchQuery('');
+                                    setStatusFilter('all');
+                                    setHighlightedHouse(null);
+                                }}
+                                className="w-full py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors"
                             >
                                 ← Back to Zones
                             </button>
@@ -516,21 +634,26 @@ export default function EngineerApp() {
                             {/* Action Buttons */}
                             <div className="flex gap-3">
                                 <button
-                                    onClick={() => setStep(2)}
-                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
+                                    onClick={() => {
+                                        setStep(2);
+                                        setSearchQuery('');
+                                        setStatusFilter('all');
+                                        setHighlightedHouse(null);
+                                    }}
+                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors"
                                     disabled={isSubmitting}
                                 >
-                                    ← Back
+                                    ← Back to Houses
                                 </button>
                                 <button
                                     onClick={handleSubmit}
                                     disabled={!elecReading || !waterReading || isSubmitting || isReadingElec || isReadingWater}
                                     className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${(!elecReading || !waterReading || isSubmitting || isReadingElec || isReadingWater)
                                         ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                        : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
+                                        : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg hover:from-emerald-400 hover:to-teal-400'
                                         }`}
                                 >
-                                    {isSubmitting ? '⏳ Submitting...' : '✓ Submit'}
+                                    {isSubmitting ? '⏳ Saving...' : '💾 Save Readings'}
                                 </button>
                             </div>
                         </div>
