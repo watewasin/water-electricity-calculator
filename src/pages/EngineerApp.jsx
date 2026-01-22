@@ -248,50 +248,8 @@ export default function EngineerApp() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col lg:flex-row gap-4 p-4">
-            {/* Left Side: Zoomable Map Area */}
-            <div className="hidden lg:block lg:flex-1 bg-slate-800/50 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
-                <div
-                    className="w-full h-full overflow-auto"
-                    onWheel={handleMapZoom}
-                    style={{ cursor: 'grab' }}
-                >
-                    <div
-                        style={{
-                            transform: `scale(${mapZoom})`,
-                            transformOrigin: 'top left',
-                            transition: 'transform 0.1s ease-out',
-                        }}
-                    >
-                        <VillageMap houses={houses} onHouseClick={(house) => {
-                            setSelectedHouse(house);
-                            setStep(3);
-                        }} />
-                    </div>
-                </div>
-
-                {/* Zoom Controls */}
-                <div className="absolute bottom-4 right-4 bg-slate-900/90 rounded-lg border border-slate-600 shadow-lg">
-                    <button
-                        onClick={() => setMapZoom(prev => Math.max(0.5, prev - 0.2))}
-                        className="block w-10 h-10 flex items-center justify-center hover:bg-slate-700 text-white font-bold border-b border-slate-600"
-                    >
-                        −
-                    </button>
-                    <div className="px-3 py-1 text-center text-sm text-slate-300 font-mono bg-slate-800">
-                        {(mapZoom * 100).toFixed(0)}%
-                    </div>
-                    <button
-                        onClick={() => setMapZoom(prev => Math.min(3, prev + 0.2))}
-                        className="block w-10 h-10 flex items-center justify-center hover:bg-slate-700 text-white font-bold"
-                    >
-                        +
-                    </button>
-                </div>
-            </div>
-
-            {/* Right Side: Scrollable Dashboard */}
-            <div className="w-full lg:w-96 flex flex-col">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col p-4">
+            <div className="max-w-md mx-auto w-full flex flex-col h-screen">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-4 shadow-2xl flex justify-between items-center">
                     <div>
