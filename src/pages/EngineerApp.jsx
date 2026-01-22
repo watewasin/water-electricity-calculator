@@ -112,23 +112,7 @@ export default function EngineerApp() {
             const elecBill = calculateElectricityBill(0, parseInt(elecReading));
             const waterBill = calculateWaterBill(0, parseInt(waterReading));
 
-            // 2. Save Images to Backend API
-            if (elecPhoto) {
-                try {
-                    await imagesAPI.upload(selectedHouse.label, selectedMonth, 'electricity', elecPhoto);
-                } catch (e) {
-                    console.error('Failed to upload electricity photo', e);
-                }
-            }
-            if (waterPhoto) {
-                try {
-                    await imagesAPI.upload(selectedHouse.label, selectedMonth, 'water', waterPhoto);
-                } catch (e) {
-                    console.error('Failed to upload water photo', e);
-                }
-            }
-
-            // 3. Save Data to API
+            // 2. Prepare updated house data
             const houseToUpdate = houses.find(h => h.label === selectedHouse.label);
             if (!houseToUpdate) throw new Error("Selected house not found in state");
 
@@ -149,20 +133,34 @@ export default function EngineerApp() {
                 }
             };
 
-            await housesAPI.saveHouse(updatedHouseData);
-
-            // Update local state
+            // 3. Update local state immediately for instant UI response
             setHouses(prev => prev.map(h =>
                 h.label === selectedHouse.label ? { ...h, ...updatedHouseData } : h
             ));
 
-            // Reset for next entry but keep zone
             setStep(2);
             setSelectedHouse(null);
             setElecReading('');
             setWaterReading('');
             setElecPhoto(null);
             setWaterPhoto(null);
+
+            // 4. Save to API in background (fire and forget with error logging)
+            housesAPI.saveHouse(updatedHouseData).catch(e => {
+                console.error('Failed to save house data:', e);
+            });
+
+            // 5. Upload images in background
+            if (elecPhoto) {
+                imagesAPI.upload(selectedHouse.label, selectedMonth, 'electricity', elecPhoto).catch(e => {
+                    console.error('Failed to upload electricity photo', e);
+                });
+            }
+            if (waterPhoto) {
+                imagesAPI.upload(selectedHouse.label, selectedMonth, 'water', waterPhoto).catch(e => {
+                    console.error('Failed to upload water photo', e);
+                });
+            }
 
         } catch (error) {
             console.error(error);
