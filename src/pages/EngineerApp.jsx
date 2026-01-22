@@ -9,6 +9,7 @@ export default function EngineerApp() {
     const [step, setStep] = useState(1);
     const [selectedMonth, setSelectedMonth] = useState('2026-01');
     const [selectedZone, setSelectedZone] = useState('');
+    const [houseNumber, setHouseNumber] = useState(''); // Manual house number input
     const [selectedHouse, setSelectedHouse] = useState(null);
     const [elecReading, setElecReading] = useState('');
     const [waterReading, setWaterReading] = useState('');
@@ -19,9 +20,6 @@ export default function EngineerApp() {
     const [isReadingElec, setIsReadingElec] = useState(false);
     const [isReadingWater, setIsReadingWater] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'pending', 'billed'
-    const [highlightedHouse, setHighlightedHouse] = useState(null);
     const [mapZoom, setMapZoom] = useState(1); // For map zoom
 
     // Load custom periods from API
@@ -110,44 +108,51 @@ export default function EngineerApp() {
 
     const housesInZone = getHousesInZone();
 
-    const handlePhotoUpload = (e, type) => {
+    const handlePhotoUpload = async (e, type) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = (event) => {
+            reader.onload = async (event) => {
                 const base64Image = event.target.result;
                 if (type === 'elec') {
                     setElecPhoto(base64Image);
                     setElecReading(''); // Clear previous reading
+                    // Auto-trigger AI reading
+                    await handleAIRead(type, base64Image);
                 } else {
                     setWaterPhoto(base64Image);
                     setWaterReading(''); // Clear previous reading
+                    // Auto-trigger AI reading
+                    await handleAIRead(type, base64Image);
                 }
             };
             reader.readAsDataURL(file);
         }
     };
 
-    const handleAIRead = async (type) => {
-        if (type === 'elec' && elecPhoto) {
+    const handleAIRead = async (type, photoData = null) => {
+        const photo = photoData || (type === 'elec' ? elecPhoto : waterPhoto);
+        if (!photo) return;
+
+        if (type === 'elec') {
             setIsReadingElec(true);
             try {
-                const reading = await readMeterValue(elecPhoto, 'electricity');
+                const reading = await readMeterValue(photo, 'electricity');
                 setElecReading(reading.toString());
             } catch (error) {
                 console.error('Failed to read electricity meter:', error);
-                setElecReading('Please enter the value');
+                setElecReading('');
             } finally {
                 setIsReadingElec(false);
             }
-        } else if (type === 'water' && waterPhoto) {
+        } else if (type === 'water') {
             setIsReadingWater(true);
             try {
-                const reading = await readMeterValue(waterPhoto, 'water');
+                const reading = await readMeterValue(photo, 'water');
                 setWaterReading(reading.toString());
             } catch (error) {
                 console.error('Failed to read water meter:', error);
-                setWaterReading('Please enter the value');
+                setWaterReading('');
             } finally {
                 setIsReadingWater(false);
             }
@@ -322,7 +327,7 @@ export default function EngineerApp() {
                 {/* Progress Indicator */}
                 <div className="bg-slate-800/50 rounded-xl p-4 mb-4 border border-slate-700">
                     <div className="flex justify-between mb-2">
-                        {[1, 2, 3].map(s => (
+                        {[1, 2].map(s => (
                             <div key={s} className="flex flex-col items-center flex-1">
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${step >= s
                                     ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg'
@@ -331,7 +336,7 @@ export default function EngineerApp() {
                                     {s}
                                 </div>
                                 <span className="text-xs text-slate-400 mt-1">
-                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : 'Data'}
+                                    {s === 1 ? 'Zone' : 'Data'}
                                 </span>
                             </div>
                         ))}
@@ -339,7 +344,7 @@ export default function EngineerApp() {
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
-                            style={{ width: `${(step / 3) * 100}%` }}
+                            style={{ width: `${(step / 2) * 100}%` }}
                         />
                     </div>
                 </div>
@@ -367,16 +372,14 @@ export default function EngineerApp() {
                                             key={zone}
                                             onClick={() => {
                                                 setSelectedZone(zone);
-                                                setSearchQuery('');
-                                                setStatusFilter('all');
-                                                setHighlightedHouse(null);
+                                                setHouseNumber('');
                                                 setStep(2);
                                             }}
                                             className="p-4 rounded-xl font-semibold transition-all bg-gradient-to-br from-indigo-600 to-indigo-700 text-white hover:from-indigo-500 hover:to-indigo-600 shadow-lg hover:shadow-xl active:scale-95"
                                         >
                                             <div className="text-lg mb-1">{zone}</div>
                                             <div className="text-xs text-indigo-200">
-                                                {zonePending} of {zoneCount} pending
+                                                Enter meter readings
                                             </div>
                                         </button>
                                     );
@@ -605,14 +608,6 @@ export default function EngineerApp() {
                                         )}
                                     </div>
                                 )}
-                                {elecPhoto && (
-                                    <button
-                                        onClick={() => handleAIRead('elec')}
-                                        className="mt-2 py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
-                                    >
-                                        Read Electricity Meter
-                                    </button>
-                                )}
                             </div>
 
                             {/* Water */}
@@ -671,29 +666,19 @@ export default function EngineerApp() {
                                         )}
                                     </div>
                                 )}
-                                {waterPhoto && (
-                                    <button
-                                        onClick={() => handleAIRead('water')}
-                                        className="mt-2 py-2 px-4 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500"
-                                    >
-                                        Read Water Meter
-                                    </button>
-                                )}
                             </div>
 
                             {/* Action Buttons */}
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => {
-                                        setStep(2);
-                                        setSearchQuery('');
-                                        setStatusFilter('all');
-                                        setHighlightedHouse(null);
+                                        setStep(1);
+                                        setHouseNumber('');
                                     }}
                                     className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors"
                                     disabled={isSubmitting}
                                 >
-                                    ← Back to Houses
+                                    ← Back to Zones
                                 </button>
                                 <button
                                     onClick={handleSubmit}
