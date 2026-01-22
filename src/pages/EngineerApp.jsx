@@ -61,7 +61,7 @@ export default function EngineerApp() {
     }, [selectedMonth]);
 
     const defaultMonths = [
-        { value: '2026-01', label: 'Jan 2026' }
+        { value: '2026-01', label: 'January 2026' }
     ];
 
     const allMonths = [...defaultMonths, ...customPeriods].sort((a, b) => b.value.localeCompare(a.value));
