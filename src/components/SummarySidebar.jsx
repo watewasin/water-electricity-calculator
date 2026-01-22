@@ -158,16 +158,12 @@ export default function SummarySidebar({ houses, selectedMonth }) {
             </button>
 
             <div>
-                <h2 className="text-xl font-bold text-white mb-2">Summary</h2>
+                <h2 className="text-xl font-bold text-white mb-2">Summary (total {houses.length} houses)</h2>
                 <p className="text-slate-400 text-sm">{selectedMonth}</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-3">
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                    <p className="text-slate-400 text-xs uppercase tracking-wide">Total Houses</p>
-                    <p className="text-2xl font-bold text-white">{houses.length}</p>
-                </div>
                 <div className="bg-emerald-500/10 rounded-xl p-4 border border-emerald-500/30">
                     <p className="text-emerald-400 text-xs uppercase tracking-wide">Billed</p>
                     <p className="text-2xl font-bold text-emerald-400">{billedHouses.length}</p>
