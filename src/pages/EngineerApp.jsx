@@ -94,40 +94,47 @@ export default function EngineerApp() {
 
     const housesInZone = getHousesInZone();
 
-    const handlePhotoCapture = async (e, type) => {
+    const handlePhotoUpload = (e, type) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = async (event) => {
+            reader.onload = (event) => {
                 const base64Image = event.target.result;
-
                 if (type === 'elec') {
                     setElecPhoto(base64Image);
-                    setIsReadingElec(true);
-                    try {
-                        const reading = await readMeterValue(base64Image, 'electricity');
-                        setElecReading(reading.toString());
-                    } catch (error) {
-                        console.error('Failed to read electricity meter:', error);
-                        setElecReading('Please enter the value');
-                    } finally {
-                        setIsReadingElec(false);
-                    }
+                    setElecReading(''); // Clear previous reading
                 } else {
                     setWaterPhoto(base64Image);
-                    setIsReadingWater(true);
-                    try {
-                        const reading = await readMeterValue(base64Image, 'water');
-                        setWaterReading(reading.toString());
-                    } catch (error) {
-                        console.error('Failed to read water meter:', error);
-                        setWaterReading('Please enter the value');
-                    } finally {
-                        setIsReadingWater(false);
-                    }
+                    setWaterReading(''); // Clear previous reading
                 }
             };
             reader.readAsDataURL(file);
+        }
+    };
+
+    const handleAIRead = async (type) => {
+        if (type === 'elec' && elecPhoto) {
+            setIsReadingElec(true);
+            try {
+                const reading = await readMeterValue(elecPhoto, 'electricity');
+                setElecReading(reading.toString());
+            } catch (error) {
+                console.error('Failed to read electricity meter:', error);
+                setElecReading('Please enter the value');
+            } finally {
+                setIsReadingElec(false);
+            }
+        } else if (type === 'water' && waterPhoto) {
+            setIsReadingWater(true);
+            try {
+                const reading = await readMeterValue(waterPhoto, 'water');
+                setWaterReading(reading.toString());
+            } catch (error) {
+                console.error('Failed to read water meter:', error);
+                setWaterReading('Please enter the value');
+            } finally {
+                setIsReadingWater(false);
+            }
         }
     };
 
@@ -368,7 +375,7 @@ export default function EngineerApp() {
                                     type="file"
                                     accept="image/*"
                                     capture="environment"
-                                    onChange={(e) => handlePhotoCapture(e, 'elec')}
+                                    onChange={(e) => handlePhotoUpload(e, 'elec')}
                                     className="hidden"
                                     id="elec-photo"
                                 />
@@ -413,6 +420,14 @@ export default function EngineerApp() {
                                         )}
                                     </div>
                                 )}
+                                {elecPhoto && (
+                                    <button
+                                        onClick={() => handleAIRead('elec')}
+                                        className="mt-2 py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
+                                    >
+                                        Read Electricity Meter
+                                    </button>
+                                )}
                             </div>
 
                             {/* Water */}
@@ -426,7 +441,7 @@ export default function EngineerApp() {
                                     type="file"
                                     accept="image/*"
                                     capture="environment"
-                                    onChange={(e) => handlePhotoCapture(e, 'water')}
+                                    onChange={(e) => handlePhotoUpload(e, 'water')}
                                     className="hidden"
                                     id="water-photo"
                                 />
@@ -470,6 +485,14 @@ export default function EngineerApp() {
                                             </div>
                                         )}
                                     </div>
+                                )}
+                                {waterPhoto && (
+                                    <button
+                                        onClick={() => handleAIRead('water')}
+                                        className="mt-2 py-2 px-4 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500"
+                                    >
+                                        Read Water Meter
+                                    </button>
                                 )}
                             </div>
 
