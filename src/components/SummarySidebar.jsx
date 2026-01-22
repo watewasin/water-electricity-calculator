@@ -131,14 +131,14 @@ export default function SummarySidebar({ houses, selectedMonth }) {
                     onClick={() => setShowAddModal(true)}
                     className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-1"
                 >
-                    ➕ Add
+                    Add
                 </button>
 
                 <button
                     onClick={() => setShowRemoveModal(true)}
                     className="flex-1 bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-1"
                 >
-                    ➖ Remove
+                    Remove
                 </button>
             </div>
 
@@ -154,7 +154,7 @@ export default function SummarySidebar({ houses, selectedMonth }) {
                 }}
                 className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-2"
             >
-                ⚙️ Configure Rates
+                Configure Rates
             </button>
 
             <div>
