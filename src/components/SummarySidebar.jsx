@@ -39,9 +39,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
         loadPeriods();
     }, []);
 
-    const defaultMonths = [
-        { value: '2026-01', label: 'January 2026' }
-    ];
+    const defaultMonths = [];
 
     const handleAddPeriod = async () => {
         if (!newMonth || !newYear) {

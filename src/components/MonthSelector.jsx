@@ -21,9 +21,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
         loadPeriods();
     }, []);
 
-    const defaultMonths = [
-        { value: '2026-01', label: 'January 2026' }
-    ];
+    const defaultMonths = [];
 
     const allMonths = [...defaultMonths, ...customPeriods].sort((a, b) => b.value.localeCompare(a.value));
 
