@@ -109,7 +109,7 @@ export default function EngineerApp() {
                         setElecReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read electricity meter:', error);
-                        alert('AI failed to read the electricity meter. Please check the image quality or enter the reading manually.');
+                        setElecReading(''); // Clear the input box for manual entry
                     } finally {
                         setIsReadingElec(false);
                     }
@@ -121,7 +121,7 @@ export default function EngineerApp() {
                         setWaterReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read water meter:', error);
-                        alert('AI failed to read the water meter. Please check the image quality or enter the reading manually.');
+                        setWaterReading(''); // Clear the input box for manual entry
                     } finally {
                         setIsReadingWater(false);
                     }
@@ -144,12 +144,9 @@ export default function EngineerApp() {
 
         setIsSubmitting(true);
         try {
-            // 1. Calculate Bills
-            // Treat input as Units Used (Consumption) as per previous logic
             const elecBill = calculateElectricityBill(0, parseInt(elecReading));
             const waterBill = calculateWaterBill(0, parseInt(waterReading));
 
-            // 2. Save Images to Backend API
             if (elecPhoto) {
                 try {
                     await imagesAPI.upload(selectedHouse.label, selectedMonth, 'electricity', elecPhoto);
@@ -165,7 +162,6 @@ export default function EngineerApp() {
                 }
             }
 
-            // 3. Save Data to API
             const houseToUpdate = houses.find(h => h.label === selectedHouse.label);
             if (!houseToUpdate) throw new Error("Selected house not found in state");
 
@@ -182,20 +178,17 @@ export default function EngineerApp() {
                     elecBill,
                     waterBill,
                     total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
-                    hasImages: true // Flag to indicate images exist locally/uploaded
+                    hasImages: true
                 }
             };
 
             await housesAPI.saveHouse(updatedHouseData);
 
-            // Update local state
             setHouses(prev => prev.map(h =>
                 h.label === selectedHouse.label ? { ...h, ...updatedHouseData } : h
             ));
 
-            alert(`✅ Success! Bill saved for House ${selectedHouse.label}\n\nElectricity: ${elecReading} kWh\nWater: ${waterReading} m³\nTotal: ฿${updatedHouseData.billData.total.toFixed(2)}`);
-
-            // Reset for next entry but keep zone
+            // Reset for next entry and return to house selection page
             setStep(2);
             setSelectedHouse(null);
             setElecReading('');
@@ -213,8 +206,6 @@ export default function EngineerApp() {
 
     const canProceedStep2 = selectedZone !== '';
     const canProceedStep3 = selectedHouse !== null;
-    const canProceedStep4 = elecReading !== '' && waterReading !== '';
-    const canSubmit = elecPhoto && waterPhoto; // Require both photos? Assuming yes based on flow.
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
@@ -243,7 +234,7 @@ export default function EngineerApp() {
                 {/* Progress Indicator */}
                 <div className="bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-700">
                     <div className="flex justify-between mb-2">
-                        {[1, 2, 3, 4].map(s => (
+                        {[1, 2, 3].map(s => (
                             <div key={s} className="flex flex-col items-center flex-1">
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${step >= s
                                     ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg'
@@ -252,7 +243,7 @@ export default function EngineerApp() {
                                     {s}
                                 </div>
                                 <span className="text-xs text-slate-400 mt-1">
-                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : s === 3 ? 'Data' : 'Review'}
+                                    {s === 1 ? 'Zone' : s === 2 ? 'House' : 'Data'}
                                 </span>
                             </div>
                         ))}
@@ -260,7 +251,7 @@ export default function EngineerApp() {
                     <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
-                            style={{ width: `${(step / 4) * 100}%` }}
+                            style={{ width: `${(step / 3) * 100}%` }}
                         />
                     </div>
                 </div>
