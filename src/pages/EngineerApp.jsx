@@ -109,7 +109,7 @@ export default function EngineerApp() {
                         setElecReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read electricity meter:', error);
-                        alert('Could not read meter automatically. Please enter manually.');
+                        alert('AI failed to read the electricity meter. Please check the image quality or enter the reading manually.');
                     } finally {
                         setIsReadingElec(false);
                     }
@@ -121,7 +121,7 @@ export default function EngineerApp() {
                         setWaterReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read water meter:', error);
-                        alert('Could not read meter automatically. Please enter manually.');
+                        alert('AI failed to read the water meter. Please check the image quality or enter the reading manually.');
                     } finally {
                         setIsReadingWater(false);
                     }
@@ -131,7 +131,17 @@ export default function EngineerApp() {
         }
     };
 
+    const validateReading = (reading) => {
+        const number = parseFloat(reading);
+        return !isNaN(number) && number >= 0;
+    };
+
     const handleSubmit = async () => {
+        if (!validateReading(elecReading) || !validateReading(waterReading)) {
+            alert('Please ensure all readings are valid numbers.');
+            return;
+        }
+
         setIsSubmitting(true);
         try {
             // 1. Calculate Bills
@@ -194,8 +204,8 @@ export default function EngineerApp() {
             setWaterPhoto(null);
 
         } catch (error) {
-            console.error(error);
-            alert('❌ Error saving data');
+            console.error('Error submitting data:', error);
+            alert('An error occurred while submitting the data. Please try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -495,67 +505,6 @@ export default function EngineerApp() {
                         </div>
                     )}
 
-                    {/* Step 4: Review */}
-                    {step === 4 && (
-                        <div className="p-6">
-                            <h2 className="text-xl font-bold text-white mb-4">Review & Submit</h2>
-
-                            <div className="space-y-4 mb-6">
-                                <div className="bg-slate-700/50 rounded-lg p-4 flex justify-between items-center">
-                                    <div>
-                                        <div className="text-slate-400 text-sm mb-1">Location</div>
-                                        <div className="text-white font-semibold">
-                                            {selectedZone} • House {selectedHouse?.label}
-                                        </div>
-                                    </div>
-                                    <div className="text-indigo-400 text-sm">{selectedMonth}</div>
-                                </div>
-
-                                <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-                                    <div className="text-amber-400 font-semibold mb-2 flex items-center gap-2">
-                                        <span>⚡</span> Electricity
-                                    </div>
-                                    <div className="text-white font-mono text-2xl mb-3">{elecReading}</div>
-                                    {elecPhoto && (
-                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
-                                            <img src={elecPhoto} alt="Electricity meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
-                                    <div className="text-cyan-400 font-semibold mb-2 flex items-center gap-2">
-                                        <span>💧</span> Water
-                                    </div>
-                                    <div className="text-white font-mono text-2xl mb-3">{waterReading}</div>
-                                    {waterPhoto && (
-                                        <div className="bg-black/40 rounded-lg p-2 flex justify-center">
-                                            <img src={waterPhoto} alt="Water meter" className="max-h-64 h-auto w-auto max-w-full object-contain rounded" />
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={() => setStep(3)}
-                                    className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
-                                >
-                                    ← Edit
-                                </button>
-                                <button
-                                    onClick={handleSubmit}
-                                    disabled={!canSubmit}
-                                    className={`flex-1 py-4 rounded-xl font-bold text-lg transition-all ${canSubmit
-                                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg'
-                                        : 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                        }`}
-                                >
-                                    ✓ Submit
-                                </button>
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
         </div>

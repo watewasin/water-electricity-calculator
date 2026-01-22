@@ -11,7 +11,7 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
  */
 export async function readMeterValue(base64Image, meterType) {
     if (!GEMINI_API_KEY) {
-        throw new Error('Gemini API key not configured');
+        throw new Error('Gemini API key is missing. Please configure it in the environment variables.');
     }
 
     // Remove data URL prefix if present
@@ -26,6 +26,9 @@ export async function readMeterValue(base64Image, meterType) {
            Return ONLY the number, nothing else. If you cannot read the meter clearly, return 0.`;
 
     try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+
         const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
             method: 'POST',
             headers: {
@@ -47,8 +50,11 @@ export async function readMeterValue(base64Image, meterType) {
                     temperature: 0.1,
                     maxOutputTokens: 50,
                 }
-            })
+            }),
+            signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
 
         if (!response.ok) {
             throw new Error(`Gemini API error: ${response.statusText}`);
@@ -58,7 +64,7 @@ export async function readMeterValue(base64Image, meterType) {
         const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
         if (!text) {
-            throw new Error('No response from Gemini');
+            throw new Error('No response from Gemini API or empty response.');
         }
 
         // Extract number from response
@@ -71,7 +77,11 @@ export async function readMeterValue(base64Image, meterType) {
 
         return number;
     } catch (error) {
-        console.error('Error reading meter with Gemini:', error);
-        throw error;
+        if (error.name === 'AbortError') {
+            console.error('Gemini API request timed out.');
+        } else {
+            console.error('Error reading meter with Gemini:', error);
+        }
+        return 0; // Return 0 in case of any error
     }
 }
