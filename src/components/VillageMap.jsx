@@ -54,7 +54,7 @@ export default function VillageMap({ houses, onHouseClick }) {
         }
 
         return (
-            <div className="bg-emerald-400/60 rounded p-2">
+            <div className="bg-orange-200/80 rounded p-2">
                 <div className="bg-black text-white px-2 py-0.5 rounded text-[10px] font-bold inline-block mb-1">
                     Zone E
                 </div>
@@ -89,7 +89,7 @@ export default function VillageMap({ houses, onHouseClick }) {
         }
 
         return (
-            <div className="bg-red-300/60 rounded p-2">
+            <div className="bg-orange-200/80 rounded p-2">
                 <div className="bg-black text-white px-2 py-0.5 rounded text-[10px] font-bold inline-block mb-1">
                     Zone S
                 </div>
@@ -230,7 +230,7 @@ export default function VillageMap({ houses, onHouseClick }) {
         );
     };
 
-    // Render Zone C (original) with spacing every 2 rows and wider houses
+    // Render Zone C (original) with spacing every 2 rows
     const renderZoneCWithGaps = () => {
         const zoneHouses = zones.Zone_C;
         if (!zoneHouses || zoneHouses.length === 0) return null;
@@ -243,23 +243,7 @@ export default function VillageMap({ houses, onHouseClick }) {
             rows.push(
                 <div key={row} className={`flex gap-0.5 ${isGapRow ? 'mb-2' : 'mb-0.5'}`}>
                     {rowHouses.map(house => (
-                        <div
-                            key={house.id}
-                            onClick={() => onHouseClick(house)}
-                            className={`
-                                w-16 h-6 flex items-center justify-center
-                                text-[10px] font-bold text-white cursor-pointer
-                                rounded-md shadow-lg transition-all duration-200
-                                hover:scale-110 hover:z-10 hover:shadow-xl
-                                ${house.status === 'pending'
-                                    ? 'bg-gradient-to-br from-red-500 to-red-700 hover:from-red-400 hover:to-red-600'
-                                    : 'bg-gradient-to-br from-emerald-500 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600'
-                                }
-                            `}
-                            title={`House ${house.label} - ${house.status === 'pending' ? 'Pending' : 'Billed'}`}
-                        >
-                            {house.label}
-                        </div>
+                        <HouseBox key={house.id} house={house} onClick={onHouseClick} />
                     ))}
                 </div>
             );
