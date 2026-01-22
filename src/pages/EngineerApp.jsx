@@ -109,7 +109,7 @@ export default function EngineerApp() {
                         setElecReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read electricity meter:', error);
-                        setElecReading(''); // Clear the input box for manual entry
+                        setElecReading('Please enter the value');
                     } finally {
                         setIsReadingElec(false);
                     }
@@ -121,7 +121,7 @@ export default function EngineerApp() {
                         setWaterReading(reading.toString());
                     } catch (error) {
                         console.error('Failed to read water meter:', error);
-                        setWaterReading(''); // Clear the input box for manual entry
+                        setWaterReading('Please enter the value');
                     } finally {
                         setIsReadingWater(false);
                     }
