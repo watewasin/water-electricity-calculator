@@ -211,6 +211,23 @@ export default function EngineerApp() {
         }
     };
 
+    const handleAddBillingPeriod = async (newPeriod) => {
+        const existingPeriod = customPeriods.find(period => period.value === newPeriod);
+        if (existingPeriod) {
+            alert('This billing period already exists. Please choose a different year and month.');
+            return;
+        }
+
+        try {
+            await periodsAPI.add(newPeriod);
+            setCustomPeriods(prev => [...prev, { value: newPeriod, label: newPeriod }]);
+            alert('Billing period added successfully.');
+        } catch (error) {
+            console.error('Failed to add billing period:', error);
+            alert('Failed to add billing period. Please try again.');
+        }
+    };
+
     const canProceedStep2 = selectedZone !== '';
     const canProceedStep3 = selectedHouse !== null;
 
