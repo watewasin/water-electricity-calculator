@@ -114,37 +114,38 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
     const handleSave = async () => {
         if (elecBill && waterBill && !errors.elec && !errors.water) {
             setIsSaving(true);
+            
+            // Call onSave immediately (synchronously handles UI state update)
+            const billData = {
+                elec: parseInt(elecCurr, 10),
+                water: parseInt(waterCurr, 10),
+                elecBill,
+                waterBill,
+                total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
+                hasImages: !!(elecImage || waterImage || elecImagePreview || waterImagePreview)
+            };
+            
             try {
-                // Save images to Backend API
-                if (elecImage) {
-                    try {
-                        await imagesAPI.upload(house.label, selectedMonth, 'electricity', elecImage);
-                    } catch (e) {
-                        console.error('Failed to upload electricity photo', e);
-                    }
-                }
-                if (waterImage) {
-                    try {
-                        await imagesAPI.upload(house.label, selectedMonth, 'water', waterImage);
-                    } catch (e) {
-                        console.error('Failed to upload water photo', e);
-                    }
-                }
-
-                await onSave(house.id, {
-                    elec: parseInt(elecCurr, 10),
-                    water: parseInt(waterCurr, 10),
-                    elecBill,
-                    waterBill,
-                    total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
-                    hasImages: !!(elecImage || waterImage || elecImagePreview || waterImagePreview)
-                });
-                onClose();
+                await onSave(house.id, billData);
             } catch (error) {
                 console.error("Save failed", error);
-                // Optionally show error in modal
-            } finally {
                 setIsSaving(false);
+                return;
+            }
+            
+            // Close modal immediately for instant UI response
+            onClose();
+            
+            // Upload images in background (fire and forget)
+            if (elecImage) {
+                imagesAPI.upload(house.label, selectedMonth, 'electricity', elecImage).catch(e => {
+                    console.error('Failed to upload electricity photo', e);
+                });
+            }
+            if (waterImage) {
+                imagesAPI.upload(house.label, selectedMonth, 'water', waterImage).catch(e => {
+                    console.error('Failed to upload water photo', e);
+                });
             }
         }
     };
