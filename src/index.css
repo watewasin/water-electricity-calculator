@@ -29,3 +29,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Updated color scheme */
+body {
+    background-color: #4E3629; /* Dark brown */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+button {
+    background-color: #D2B48C; /* Light brown */
+    color: #000000; /* Black text for contrast */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #C19A6B; /* Slightly darker light brown */
+}
+
+/* Update other elements to match the new color scheme */
+header {
+    background-color: #4E3629; /* Dark brown */
+    border-bottom: 1px solid #3E2C23; /* Slightly darker brown */
+}
+
+input {
+    background-color: #4E3629; /* Dark brown */
+    color: #FFFFFF; /* White text */
+    border: 1px solid #3E2C23; /* Slightly darker brown */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #D2B48C; /* Light brown */
+    outline: none;
+}
