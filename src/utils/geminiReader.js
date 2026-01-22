@@ -61,9 +61,17 @@ export async function readMeterValue(base64Image, meterType) {
         }
 
         const data = await response.json();
-        const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+
+        // Validate response structure
+        if (!data || !data.candidates || !Array.isArray(data.candidates) || data.candidates.length === 0) {
+            console.error('Invalid response structure from Gemini API:', data);
+            throw new Error('Invalid response structure from Gemini API.');
+        }
+
+        const text = data.candidates[0]?.content?.parts?.[0]?.text?.trim();
 
         if (!text) {
+            console.error('No text content in Gemini API response:', data);
             throw new Error('No response from Gemini API or empty response.');
         }
 
