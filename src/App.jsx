@@ -148,17 +148,17 @@ function App() {
   return (
     <div className="h-screen flex flex-col bg-slate-950">
       {/* Header */}
-      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 px-6 py-4 flex items-center justify-between">
+      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 px-8 py-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Village Utility Dashboard
           </h1>
-          <p className="text-slate-400 text-sm">Thai PEA Electricity & Water Billing System</p>
+          <p className="text-slate-400 text-base">Thai PEA Electricity & Water Billing System</p>
         </div>
         <div className="flex gap-4 items-center">
           <a
             href="#engineer"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-base"
           >
             Engineer Mode
           </a>
@@ -169,7 +169,7 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex overflow-hidden">
         <VillageMap houses={houses} onHouseClick={handleHouseClick} />
-        <SummarySidebar houses={houses} selectedMonth={selectedMonth} />
+        <SummarySidebar houses={houses} selectedMonth={selectedMonth} onHouseSearch={handleHouseClick} />
       </div>
 
       {/* Modal */}

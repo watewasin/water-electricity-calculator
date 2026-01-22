@@ -2,13 +2,14 @@ import { jsPDF } from 'jspdf';
 import { useState, useEffect } from 'react';
 import { periodsAPI } from '../services/api';
 
-export default function SummarySidebar({ houses, selectedMonth }) {
+export default function SummarySidebar({ houses, selectedMonth, onHouseSearch }) {
     const [showAddModal, setShowAddModal] = useState(false);
     const [showRemoveModal, setShowRemoveModal] = useState(false);
     const [showRatesModal, setShowRatesModal] = useState(false);
     const [newMonth, setNewMonth] = useState('');
     const [newYear, setNewYear] = useState('2026');
     const [customPeriods, setCustomPeriods] = useState([]);
+    const [searchHouseNumber, setSearchHouseNumber] = useState('');
 
     // Default rates (Thai PEA/PWA official rates)
     const DEFAULT_RATES = {
@@ -85,6 +86,17 @@ export default function SummarySidebar({ houses, selectedMonth }) {
         }
     };
 
+    const handleSearchHouse = () => {
+        if (!searchHouseNumber.trim()) return;
+        const house = houses.find(h => h.label === searchHouseNumber.trim());
+        if (house && onHouseSearch) {
+            onHouseSearch(house);
+            setSearchHouseNumber('');
+        } else {
+            alert(`House ${searchHouseNumber} not found`);
+        }
+    };
+
     const billedHouses = houses.filter(h => h.status === 'billed');
     const pendingHouses = houses.filter(h => h.status === 'pending');
 
@@ -124,19 +136,19 @@ export default function SummarySidebar({ houses, selectedMonth }) {
     };
 
     return (
-        <div className="bg-slate-900/95 backdrop-blur-sm border-l border-slate-700 p-6 flex flex-col gap-6" style={{ width: '340px' }}>
+        <div className="bg-slate-900/95 backdrop-blur-sm border-l border-slate-700 p-8 flex flex-col gap-6 overflow-y-auto" style={{ width: '400px' }}>
             {/* Period Management Buttons */}
             <div className="flex gap-2">
                 <button
                     onClick={() => setShowAddModal(true)}
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-1"
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-1"
                 >
                     Add
                 </button>
 
                 <button
                     onClick={() => setShowRemoveModal(true)}
-                    className="flex-1 bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-1"
+                    className="flex-1 bg-red-600 hover:bg-red-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-1"
                 >
                     Remove
                 </button>
@@ -152,42 +164,63 @@ export default function SummarySidebar({ houses, selectedMonth }) {
                         alert('Incorrect password!');
                     }
                 }}
-                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-2"
             >
                 Configure Rates
             </button>
 
+            {/* Search House */}
+            <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+                <label className="text-slate-400 text-xs uppercase tracking-wide block mb-2">Search House</label>
+                <div className="flex gap-2">
+                    <input
+                        type="text"
+                        value={searchHouseNumber}
+                        onChange={(e) => setSearchHouseNumber(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && handleSearchHouse()}
+                        placeholder="Enter house #"
+                        className="flex-1 bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
+                    />
+                    <button
+                        onClick={handleSearchHouse}
+                        className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors"
+                    >
+                        Go
+                    </button>
+                </div>
+            </div>
+
             <div>
-                <h2 className="text-xl font-bold text-white mb-2">Summary (total {houses.length} houses)</h2>
-                <p className="text-slate-400 text-sm">{selectedMonth}</p>
+                <h2 className="text-3xl font-bold text-white mb-2">Summary (total {houses.length} houses)</h2>
+                <p className="text-slate-400 text-base">{selectedMonth}</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-3">
-                <div className="bg-emerald-500/10 rounded-xl p-4 border border-emerald-500/30">
+                <div className="bg-emerald-500/10 rounded-xl p-5 border border-emerald-500/30">
                     <p className="text-emerald-400 text-xs uppercase tracking-wide">Billed</p>
-                    <p className="text-2xl font-bold text-emerald-400">{billedHouses.length}</p>
+                    <p className="text-4xl font-bold text-emerald-400">{billedHouses.length}</p>
                 </div>
-                <div className="bg-red-500/10 rounded-xl p-4 border border-red-500/30">
+                <div className="bg-red-500/10 rounded-xl p-5 border border-red-500/30">
                     <p className="text-red-400 text-xs uppercase tracking-wide">Pending</p>
-                    <p className="text-2xl font-bold text-red-400">{pendingHouses.length}</p>
+                    <p className="text-4xl font-bold text-red-400">{pendingHouses.length}</p>
                 </div>
             </div>
 
             {/* Collection Breakdown */}
-            <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 space-y-3">
-                <h3 className="text-white font-semibold">Collection Breakdown</h3>
-                <div className="flex justify-between text-sm">
+            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 space-y-3">
+                <h3 className="text-white font-semibold text-lg">Collection Breakdown</h3>
+                <div className="flex justify-between text-base">
                     <span className="text-amber-400">⚡ Electricity</span>
                     <span className="text-white">฿{totalElec.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between text-base">
                     <span className="text-cyan-400">💧 Water</span>
                     <span className="text-white">฿{totalWater.toFixed(2)}</span>
                 </div>
                 <div className="pt-3 border-t border-slate-600 flex justify-between">
-                    <span className="text-emerald-400 font-semibold">Total Collection</span>
-                    <span className="text-emerald-400 font-bold text-lg">฿{totalCollection.toFixed(2)}</span>
+                    <span className="text-emerald-400 font-semibold text-base">Total Collection</span>
+                    <span className="text-emerald-400 font-bold text-xl">฿{totalCollection.toFixed(2)}</span>
                 </div>
             </div>
 
@@ -195,7 +228,7 @@ export default function SummarySidebar({ houses, selectedMonth }) {
             <button
                 onClick={exportPDF}
                 disabled={billedHouses.length === 0}
-                className={`py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${billedHouses.length > 0
+                className={`py-4 rounded-xl font-semibold text-base transition-all flex items-center justify-center gap-2 ${billedHouses.length > 0
                     ? 'bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white'
                     : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                     }`}
@@ -206,9 +239,9 @@ export default function SummarySidebar({ houses, selectedMonth }) {
             {/* Legend */}
             <div className="mt-auto pt-6 border-t border-slate-700">
                 <h3 className="text-white font-semibold mb-3"></h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-base">
                     <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-gradient-to-br from-white-500 to-white-700" />
+                        <div className="w-4 h-4 rounded bg-gradient-to-br from-grey-500 to-grey-700" />
                         <span className="text-slate-300"> Pending - No reading entered</span>
                     </div>
                     <div className="flex items-center gap-2">

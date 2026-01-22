@@ -266,7 +266,7 @@ export default function VillageMap({ houses, onHouseClick }) {
         }
 
         return (
-            <div className="bg-cyan-300/60 rounded p-2">
+            <div className="bg-orange-200/80 rounded p-2">
                 <div className="bg-black text-white px-2 py-0.5 rounded text-[10px] font-bold inline-block mb-1">
                     Zone C
                 </div>
