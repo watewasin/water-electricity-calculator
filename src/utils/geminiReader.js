@@ -57,7 +57,9 @@ export async function readMeterValue(base64Image, meterType) {
         clearTimeout(timeoutId);
 
         if (!response.ok) {
-            throw new Error(`Gemini API error: ${response.statusText}`);
+            const errorData = await response.json().catch(() => ({}));
+            console.error('Gemini API Error Response:', errorData);
+            throw new Error(`Gemini API error: ${response.status} ${response.statusText} - ${JSON.stringify(errorData)}`);
         }
 
         const data = await response.json();

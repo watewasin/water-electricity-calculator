@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import villageLayout from '../data/villageMap.json';
 import { calculateElectricityBill, calculateWaterBill } from '../utils/billingCalculator';
 import { imagesAPI, housesAPI, periodsAPI } from '../services/api';
+import { readMeterValue } from '../utils/geminiReader';
 
 export default function EngineerApp() {
     const [step, setStep] = useState(1);
@@ -14,6 +15,8 @@ export default function EngineerApp() {
     const [waterPhoto, setWaterPhoto] = useState(null);
     const [customPeriods, setCustomPeriods] = useState([]);
     const [houses, setHouses] = useState([]);
+    const [isReadingElec, setIsReadingElec] = useState(false);
+    const [isReadingWater, setIsReadingWater] = useState(false);
 
     // Load custom periods from API
     useEffect(() => {
@@ -88,15 +91,43 @@ export default function EngineerApp() {
 
     const housesInZone = getHousesInZone();
 
-    const handlePhotoCapture = (e, type) => {
+    const handlePhotoCapture = async (e, type) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = (event) => {
+            reader.onload = async (event) => {
+                const imageData = event.target.result;
+
+                // Save the photo preview
                 if (type === 'elec') {
-                    setElecPhoto(event.target.result);
+                    setElecPhoto(imageData);
+                    setIsReadingElec(true);
                 } else {
-                    setWaterPhoto(event.target.result);
+                    setWaterPhoto(imageData);
+                    setIsReadingWater(true);
+                }
+
+                // 🤖 AUTO-FILL WITH GEMINI AI
+                try {
+                    const meterType = type === 'elec' ? 'electricity' : 'water';
+                    const reading = await readMeterValue(imageData, meterType);
+
+                    if (reading && reading > 0) {
+                        if (type === 'elec') {
+                            setElecReading(reading.toString());
+                        } else {
+                            setWaterReading(reading.toString());
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to auto-read meter:', error);
+                    // User can still enter manually if AI fails
+                } finally {
+                    if (type === 'elec') {
+                        setIsReadingElec(false);
+                    } else {
+                        setIsReadingWater(false);
+                    }
                 }
             };
             reader.readAsDataURL(file);
@@ -334,9 +365,16 @@ export default function EngineerApp() {
                                             onChange={(e) => setElecReading(e.target.value)}
                                             placeholder="Enter reading"
                                             className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                                            disabled={isReadingElec}
                                         />
                                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">kWh</span>
                                     </div>
+                                    {isReadingElec && (
+                                        <div className="flex items-center gap-2 text-amber-400 text-sm mb-2 animate-pulse">
+                                            <span>🤖</span>
+                                            <span>AI Reading meter...</span>
+                                        </div>
+                                    )}
                                 </div>
                                 <input
                                     type="file"
@@ -374,9 +412,16 @@ export default function EngineerApp() {
                                             onChange={(e) => setWaterReading(e.target.value)}
                                             placeholder="Enter reading"
                                             className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
+                                            disabled={isReadingWater}
                                         />
                                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">m³</span>
                                     </div>
+                                    {isReadingWater && (
+                                        <div className="flex items-center gap-2 text-cyan-400 text-sm mb-2 animate-pulse">
+                                            <span>🤖</span>
+                                            <span>AI Reading meter...</span>
+                                        </div>
+                                    )}
                                 </div>
                                 <input
                                     type="file"
