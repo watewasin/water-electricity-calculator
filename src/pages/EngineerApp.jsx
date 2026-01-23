@@ -176,7 +176,7 @@ export default function EngineerApp() {
                 {/* Header */}
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 shadow-2xl flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-white mb-2">📱 Engineer Portal</h1>
+                        <h1 className="text-2xl font-bold text-white mb-2">Engineer Portal</h1>
                         <p className="text-indigo-200 text-sm">Meter Reading Entry System</p>
                     </div>
                     <div className="text-right">
@@ -323,7 +323,7 @@ export default function EngineerApp() {
                             {/* Electricity */}
                             <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-amber-400 font-semibold mb-3 flex items-center gap-2">
-                                    <span className="text-xl">⚡</span> Electricity
+                                    Electricity
                                 </h3>
                                 <div>
                                     <label className="text-slate-400 text-sm block mb-1">Units Used</label>
@@ -350,12 +350,11 @@ export default function EngineerApp() {
                                     <div className="relative">
                                         <img src={elecPhoto} alt="Electricity meter" className="w-full h-40 object-cover rounded-lg" />
                                         <label htmlFor="elec-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
-                                            📷 Retake
+                                            Retake
                                         </label>
                                     </div>
                                 ) : (
                                     <label htmlFor="elec-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-amber-500 hover:text-amber-400">
-                                        <span className="text-3xl">📷</span>
                                         <span className="font-medium">Take Photo</span>
                                     </label>
                                 )}
@@ -364,7 +363,7 @@ export default function EngineerApp() {
                             {/* Water */}
                             <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
-                                    <span className="text-xl">💧</span> Water
+                                    Water
                                 </h3>
                                 <div>
                                     <label className="text-slate-400 text-sm block mb-1">Units Used</label>
@@ -391,12 +390,11 @@ export default function EngineerApp() {
                                     <div className="relative">
                                         <img src={waterPhoto} alt="Water meter" className="w-full h-40 object-cover rounded-lg" />
                                         <label htmlFor="water-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
-                                            📷 Retake
+                                            Retake
                                         </label>
                                     </div>
                                 ) : (
                                     <label htmlFor="water-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-cyan-500 hover:text-cyan-400">
-                                        <span className="text-3xl">📷</span>
                                         <span className="font-medium">Take Photo</span>
                                     </label>
                                 )}
