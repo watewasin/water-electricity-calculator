@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini OCR Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1e293b;
+            color: white;
+        }
+        .container {
+            background: #334155;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 10px;
+            background: #475569;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        button:disabled {
+            background: #64748b;
+            cursor: not-allowed;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1e293b;
+            border-radius: 6px;
+            min-height: 50px;
+        }
+        #preview {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+        .loading {
+            color: #fbbf24;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Gemini OCR Test</h1>
+        <p>Test the Gemini AI meter reading functionality</p>
+        
+        <input type="file" id="fileInput" accept="image/*" capture="environment">
+        <br>
+        <button id="testBtn" onclick="testOCR()">Test OCR Reading</button>
+        
+        <div id="result"></div>
+        <img id="preview" style="display:none;">
+    </div>
+
+    <script type="module">
+        import { readMeterValue } from './src/utils/geminiReader.js';
+        
+        window.testOCR = async function() {
+            const fileInput = document.getElementById('fileInput');
+            const result = document.getElementById('result');
+            const preview = document.getElementById('preview');
+            const testBtn = document.getElementById('testBtn');
+            
+            const file = fileInput.files[0];
+            if (!file) {
+                result.innerHTML = '❌ Please select an image first';
+                return;
+            }
+            
+            testBtn.disabled = true;
+            result.innerHTML = '<div class="loading">🤖 AI Reading meter...</div>';
+            
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const imageData = e.target.result;
+                
+                // Show preview
+                preview.src = imageData;
+                preview.style.display = 'block';
+                
+                try {
+                    // Test electricity reading
+                    const reading = await readMeterValue(imageData, 'electricity');
+                    
+                    result.innerHTML = `
+                        <div style="color: #10b981;">
+                            ✅ <strong>Success!</strong><br>
+                            Reading detected: <strong style="font-size: 24px;">${reading}</strong> kWh
+                        </div>
+                    `;
+                } catch (error) {
+                    result.innerHTML = `
+                        <div style="color: #ef4444;">
+                            ❌ <strong>Error:</strong><br>
+                            ${error.message}<br><br>
+                            <small>Check console for details</small>
+                        </div>
+                    `;
+                    console.error('OCR Error:', error);
+                } finally {
+                    testBtn.disabled = false;
+                }
+            };
+            
+            reader.readAsDataURL(file);
+        };
+        
+        // Auto-test when file is selected
+        document.getElementById('fileInput').addEventListener('change', () => {
+            setTimeout(() => testOCR(), 100);
+        });
+    </script>
+</body>
+</html>

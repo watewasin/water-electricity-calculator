@@ -23,11 +23,23 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
 
     const defaultMonths = [];
 
-    const allMonths = [...defaultMonths, ...customPeriods].sort((a, b) => b.value.localeCompare(a.value));
+    // Helper to format month to Thai
+    const formatMonthThai = (value) => {
+        if (!value) return '';
+        const [year, month] = value.split('-');
+        const monthNames = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+            'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+        return `${monthNames[parseInt(month) - 1]} ${parseInt(year) + 543}`;
+    };
+
+    const allMonths = [...defaultMonths, ...customPeriods].map(p => ({
+        ...p,
+        label: formatMonthThai(p.value) // Override label with Thai format
+    })).sort((a, b) => b.value.localeCompare(a.value));
 
     const handleAddPeriod = async () => {
         if (!newMonth || !newYear) {
-            alert('Please select both month and year');
+            alert('กรุณาเลือกทั้งเดือนและปี');
             return;
         }
 
@@ -38,15 +50,15 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
         // Check if period already exists
         const exists = [...defaultMonths, ...customPeriods].some(p => p.value === value);
         if (exists) {
-            alert('This period already exists!');
+            alert('รอบบิลนี้มีอยู่แล้ว!');
             return;
         }
 
         // Create label
-        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'];
+        const monthNames = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+            'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
         const monthIndex = parseInt(newMonth) - 1;
-        const label = `${monthNames[monthIndex]} ${newYear}`;
+        const label = `${monthNames[monthIndex]} ${parseInt(newYear) + 543}`;
 
         try {
             const newPeriod = await periodsAPI.add(value, label);
@@ -60,7 +72,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
             onChange(value);
         } catch (error) {
             console.error('Failed to add period:', error);
-            alert('Failed to add period');
+            alert('ไม่สามารถเพิ่มรอบบิลได้');
         }
     };
 
@@ -76,13 +88,13 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
             }
         } catch (error) {
             console.error('Failed to remove period:', error);
-            alert('Failed to remove period');
+            alert('ไม่สามารถลบรอบบิลได้');
         }
     };
 
     return (
         <div className="flex items-center gap-3">
-            <label className="text-slate-400 text-sm font-medium">Billing Period:</label>
+            <label className="text-slate-400 text-sm font-medium">รอบบิล:</label>
             <select
                 value={selectedMonth}
                 onChange={(e) => onChange(e.target.value)}
@@ -108,12 +120,12 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                         }}
                     >
                         <h3 className="text-white font-bold mb-8" style={{ fontSize: '32px' }}>
-                            Add Billing Period
+                            เพิ่มรอบบิลใหม่
                         </h3>
                         <div className="space-y-6">
                             <div>
                                 <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>
-                                    Month
+                                    เดือน
                                 </label>
                                 <select
                                     value={newMonth}
@@ -124,15 +136,15 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                                         fontSize: '18px'
                                     }}
                                 >
-                                    <option value="">Select month</option>
-                                    {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, i) => (
+                                    <option value="">เลือกเดือน</option>
+                                    {['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'].map((month, i) => (
                                         <option key={i + 1} value={i + 1}>{month}</option>
                                     ))}
                                 </select>
                             </div>
                             <div>
                                 <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>
-                                    Year
+                                    ปี (ค.ศ.)
                                 </label>
                                 <input
                                     type="number"
@@ -160,7 +172,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                                         fontSize: '18px'
                                     }}
                                 >
-                                    Cancel
+                                    ยกเลิก
                                 </button>
                                 <button
                                     onClick={handleAddPeriod}
@@ -171,7 +183,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                                         fontSize: '18px'
                                     }}
                                 >
-                                    ✓ Add Period
+                                    ✓ เพิ่มรอบบิล
                                 </button>
                             </div>
                         </div>
@@ -183,10 +195,10 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
             {showRemoveModal && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 pt-16">
                     <div className="bg-slate-900 rounded-xl p-6 border border-slate-700 w-80">
-                        <h3 className="text-white font-bold mb-4">Remove Billing Period</h3>
+                        <h3 className="text-white font-bold mb-4">ลบรอบบิล</h3>
                         <div className="space-y-2 max-h-64 overflow-y-auto">
                             {customPeriods.length === 0 ? (
-                                <p className="text-slate-400 text-sm text-center py-4">No custom periods to remove</p>
+                                <p className="text-slate-400 text-sm text-center py-4">ไม่มีรอบบิลที่ลบได้</p>
                             ) : (
                                 customPeriods.map(period => (
                                     <div key={period.value} className="flex items-center justify-between bg-slate-800 p-3 rounded-lg">
@@ -198,7 +210,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                                             }}
                                             className="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded text-sm transition-colors"
                                         >
-                                            Delete
+                                            ลบ
                                         </button>
                                     </div>
                                 ))
@@ -209,7 +221,7 @@ export default function MonthSelector({ selectedMonth, onChange, onAddPeriod }) 
                                 onClick={() => setShowRemoveModal(false)}
                                 className="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg"
                             >
-                                Close
+                                ปิด
                             </button>
                         </div>
                     </div>

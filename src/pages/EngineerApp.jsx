@@ -69,11 +69,11 @@ export default function EngineerApp() {
 
     // Zone grouping configuration
     const ZONE_MAPPING = {
-        'Zone W': ['Zone_W', 'Zone_Pyramid'],
-        'Zone C': ['Zone_C', 'Zone_18'],
-        'Zone N': ['Zone_N'],
-        'Zone S': ['Zone_S'],
-        'Zone E': ['Zone_E']
+        'โซน W': ['Zone_W', 'Zone_Pyramid'],
+        'โซน C': ['Zone_C', 'Zone_18'],
+        'โซน N': ['Zone_N'],
+        'โซน S': ['Zone_S'],
+        'โซน E': ['Zone_E']
     };
 
     const displayZones = Object.keys(ZONE_MAPPING);
@@ -207,8 +207,8 @@ export default function EngineerApp() {
                 {/* Header */}
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 shadow-2xl flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-white mb-2">Engineer Portal</h1>
-                        <p className="text-indigo-200 text-sm">Meter Reading Entry System</p>
+                        <h1 className="text-2xl font-bold text-white mb-2">ระบบบันทึกค่าน้ำค่าไฟ</h1>
+
                     </div>
                     <div className="text-right">
                         <select
@@ -255,7 +255,7 @@ export default function EngineerApp() {
                     {/* Step 1: Select Zone */}
                     {step === 1 && (
                         <div className="p-6">
-                            <h2 className="text-xl font-bold text-white mb-4">Select Zone</h2>
+                            <h2 className="text-xl font-bold text-white mb-4">เลือกโซน</h2>
                             <div className="grid grid-cols-2 gap-3">
                                 {displayZones.map(zone => (
                                     <button
@@ -277,7 +277,7 @@ export default function EngineerApp() {
                     {step === 2 && (
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-bold text-white">Select House</h2>
+                                <h2 className="text-xl font-bold text-white">เลือกบ้านเลขที่</h2>
                                 <span className="text-sm text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full">
                                     {selectedZone}
                                 </span>
@@ -336,7 +336,7 @@ export default function EngineerApp() {
                                 onClick={() => setStep(1)}
                                 className="w-full py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
                             >
-                                ← Back to Zones
+                                กลับไปหน้าเลือกโซน
                             </button>
                         </div>
                     )}
@@ -345,37 +345,19 @@ export default function EngineerApp() {
                     {step === 3 && (
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-bold text-white">Enter Readings</h2>
+                                <h2 className="text-xl font-bold text-white">ถ่ายรูปและบันทึกค่าที่อ่านได้</h2>
                                 <span className="text-sm text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full">
-                                    House {selectedHouse?.label}
+                                    บ้านเลขที่ {selectedHouse?.label}
                                 </span>
                             </div>
 
                             {/* Electricity */}
                             <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-amber-400 font-semibold mb-3 flex items-center gap-2">
-                                    Electricity
+                                    ไฟฟ้า
                                 </h3>
-                                <div>
-                                    <label className="text-slate-400 text-sm block mb-1">Units Used</label>
-                                    <div className="relative mb-3">
-                                        <input
-                                            type="number"
-                                            value={elecReading}
-                                            onChange={(e) => setElecReading(e.target.value)}
-                                            placeholder="Enter reading"
-                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
-                                            disabled={isReadingElec}
-                                        />
-                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">kWh</span>
-                                    </div>
-                                    {isReadingElec && (
-                                        <div className="flex items-center gap-2 text-amber-400 text-sm mb-2 animate-pulse">
-                                            <span>🤖</span>
-                                            <span>AI Reading meter...</span>
-                                        </div>
-                                    )}
-                                </div>
+
+                                {/* Photo Section First */}
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -385,44 +367,48 @@ export default function EngineerApp() {
                                     id="elec-photo"
                                 />
                                 {elecPhoto ? (
-                                    <div className="relative">
+                                    <div className="relative mb-4">
                                         <img src={elecPhoto} alt="Electricity meter" className="w-full h-40 object-cover rounded-lg" />
                                         <label htmlFor="elec-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
-                                            Retake
+                                            ถ่ายใหม่
                                         </label>
                                     </div>
                                 ) : (
-                                    <label htmlFor="elec-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-amber-500 hover:text-amber-400">
-                                        <span className="font-medium">Take Photo</span>
+                                    <label htmlFor="elec-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-amber-500 hover:text-amber-400 mb-4">
+                                        <span className="font-medium">ถ่ายรูปมิเตอร์ไฟฟ้า</span>
                                     </label>
                                 )}
+
+                                {/* Input Field Second */}
+                                <div>
+                                    <label className="text-slate-400 text-sm block mb-1">จำนวนหน่วยที่ใช้</label>
+                                    <div className="relative mb-3">
+                                        <input
+                                            type="number"
+                                            value={elecReading}
+                                            onChange={(e) => setElecReading(e.target.value)}
+                                            placeholder="พิมค่าที่อ่านได้"
+                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                                            disabled={isReadingElec}
+                                        />
+                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">กิโลวัตต์-ชั่วโมง</span>
+                                    </div>
+                                    {isReadingElec && (
+                                        <div className="flex items-center gap-2 text-amber-400 text-sm mb-2 animate-pulse">
+                                            <span></span>
+                                            <span>กำลังอ่านค่าจากมิเตอร์</span>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Water */}
                             <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-slate-600">
                                 <h3 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
-                                    Water
+                                    น้ำ
                                 </h3>
-                                <div>
-                                    <label className="text-slate-400 text-sm block mb-1">Units Used</label>
-                                    <div className="relative mb-3">
-                                        <input
-                                            type="number"
-                                            value={waterReading}
-                                            onChange={(e) => setWaterReading(e.target.value)}
-                                            placeholder="Enter reading"
-                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
-                                            disabled={isReadingWater}
-                                        />
-                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">m³</span>
-                                    </div>
-                                    {isReadingWater && (
-                                        <div className="flex items-center gap-2 text-cyan-400 text-sm mb-2 animate-pulse">
-                                            <span>🤖</span>
-                                            <span>AI Reading meter...</span>
-                                        </div>
-                                    )}
-                                </div>
+
+                                {/* Photo Section First */}
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -432,17 +418,39 @@ export default function EngineerApp() {
                                     id="water-photo"
                                 />
                                 {waterPhoto ? (
-                                    <div className="relative">
+                                    <div className="relative mb-4">
                                         <img src={waterPhoto} alt="Water meter" className="w-full h-40 object-cover rounded-lg" />
                                         <label htmlFor="water-photo" className="absolute bottom-2 right-2 bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer shadow-lg">
-                                            Retake
+                                            ถ่ายใหม่
                                         </label>
                                     </div>
                                 ) : (
-                                    <label htmlFor="water-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-cyan-500 hover:text-cyan-400">
-                                        <span className="font-medium">Take Photo</span>
+                                    <label htmlFor="water-photo" className="w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center gap-2 text-slate-400 cursor-pointer hover:border-cyan-500 hover:text-cyan-400 mb-4">
+                                        <span className="font-medium">ถ่ายรูปมิเตอร์น้ำ</span>
                                     </label>
                                 )}
+
+                                {/* Input Field Second */}
+                                <div>
+                                    <label className="text-slate-400 text-sm block mb-1">จำนวนหน่วยที่ใช้</label>
+                                    <div className="relative mb-3">
+                                        <input
+                                            type="number"
+                                            value={waterReading}
+                                            onChange={(e) => setWaterReading(e.target.value)}
+                                            placeholder="ใส่ค่าที่อ่านได้"
+                                            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-4 pr-12 py-3 text-white text-lg font-mono focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
+                                            disabled={isReadingWater}
+                                        />
+                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">ลบ.ม.</span>
+                                    </div>
+                                    {isReadingWater && (
+                                        <div className="flex items-center gap-2 text-cyan-400 text-sm mb-2 animate-pulse">
+                                            <span></span>
+                                            <span>กำลังอ่านค่าจากมิเตอร์</span>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="flex gap-3">
@@ -450,7 +458,7 @@ export default function EngineerApp() {
                                     onClick={() => setStep(2)}
                                     className="flex-1 py-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600"
                                 >
-                                    ← Back
+                                    ← ย้อนกลับ
                                 </button>
                                 <button
                                     onClick={handleSubmit}
@@ -460,7 +468,7 @@ export default function EngineerApp() {
                                         : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                                         }`}
                                 >
-                                    Submit
+                                    บันทึกข้อมูล
                                 </button>
                             </div>
                         </div>

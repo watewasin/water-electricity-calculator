@@ -279,7 +279,7 @@ export default function VillageMap({ houses, onHouseClick }) {
                 <div className="absolute" style={{ top: '220px', right: '120px' }}>
                     <div className="bg-emerald-100 border-2 border-emerald-400 rounded px-4 py-3 text-center shadow-md"
                         style={{ width: '252px', height: '52px' }}>
-                        <div className="text-emerald-800 font-bold text-xs">Parking area</div>
+                        <div className="text-emerald-800 font-bold text-xs">ลานจอดรถ</div>
                     </div>
                 </div>
 
@@ -326,7 +326,7 @@ export default function VillageMap({ houses, onHouseClick }) {
                 <div className="absolute" style={{ top: '620px', right: '1088px' }}>
                     <div className="bg-emerald-100 border-2 border-emerald-400 rounded px-4 py-2 text-center shadow-md"
                         style={{ width: '168px', height: '52px' }}>
-                        <div className="text-emerald-800 font-bold text-xs">Parking area</div>
+                        <div className="text-emerald-800 font-bold text-xs">ลานจอดรถ</div>
                     </div>
                 </div>
 
@@ -339,7 +339,7 @@ export default function VillageMap({ houses, onHouseClick }) {
                 <div className="absolute" style={{ top: '830px', right: '250px' }}>
                     <div className="bg-emerald-100 border-2 border-emerald-400 rounded px-4 py-2 text-center shadow-md"
                         style={{ width: '420px', height: '65px' }}>
-                        <div className="text-emerald-800 font-bold text-sm">Parking area</div>
+                        <div className="text-emerald-800 font-bold text-sm">ลานจอดรถ</div>
                     </div>
                 </div>
 

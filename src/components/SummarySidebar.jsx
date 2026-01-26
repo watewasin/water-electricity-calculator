@@ -41,9 +41,18 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
 
     const defaultMonths = [];
 
+    // Helper to format month to Thai
+    const formatMonthThai = (value) => {
+        if (!value) return '';
+        const [year, month] = value.split('-');
+        const monthNames = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+            'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+        return `${monthNames[parseInt(month) - 1]} ${parseInt(year) + 543}`;
+    };
+
     const handleAddPeriod = async () => {
         if (!newMonth || !newYear) {
-            alert('Please select both month and year');
+            alert('กรุณาเลือกทั้งเดือนและปี');
             return;
         }
 
@@ -52,14 +61,14 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
 
         const exists = [...defaultMonths, ...customPeriods].some(p => p.value === value);
         if (exists) {
-            alert('This period already exists!');
+            alert('รอบบิลนี้มีอยู่แล้ว!');
             return;
         }
 
-        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'];
+        const monthNames = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+            'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
         const monthIndex = parseInt(newMonth) - 1;
-        const label = `${monthNames[monthIndex]} ${newYear}`;
+        const label = `${monthNames[monthIndex]} ${parseInt(newYear) + 543}`;
 
         try {
             const newPeriod = await periodsAPI.add(value, label);
@@ -80,7 +89,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
             // Force reload if current month was removed? handled by parent or user action
         } catch (error) {
             console.error('Failed to remove period:', error);
-            alert('Failed to remove period');
+            alert('ไม่สามารถลบรอบบิลได้');
         }
     };
 
@@ -91,7 +100,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
             onHouseSearch(house);
             setSearchHouseNumber('');
         } else {
-            alert(`House ${searchHouseNumber} not found`);
+            alert(`ไม่พบบ้านเลขที่ ${searchHouseNumber}`);
         }
     };
 
@@ -141,83 +150,83 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                     onClick={() => setShowAddModal(true)}
                     className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-1"
                 >
-                    Add
+                    เพิ่ม
                 </button>
 
                 <button
                     onClick={() => setShowRemoveModal(true)}
                     className="flex-1 bg-red-600 hover:bg-red-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-1"
                 >
-                    Remove
+                    ลบ
                 </button>
             </div>
 
             {/* Configure Rates Button */}
             <button
                 onClick={() => {
-                    const password = prompt('Enter password to configure rates:');
+                    const password = prompt('กรุณาใส่รหัสผ่านเพื่อตั้งค่า:');
                     if (password === '1234') {
                         window.location.hash = 'config';
                     } else if (password !== null) {
-                        alert('Incorrect password!');
+                        alert('รหัสผ่านไม่ถูกต้อง!');
                     }
                 }}
                 className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-3 py-3 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-2"
             >
-                Configure Rates
+                ตั้งค่าอัตราค่าบริการ
             </button>
 
             {/* Search House */}
             <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                <label className="text-slate-400 text-xs uppercase tracking-wide block mb-2">Search House</label>
+                <label className="text-slate-400 text-xs uppercase tracking-wide block mb-2">ค้นหาบ้านเลขที่</label>
                 <div className="flex gap-2">
                     <input
                         type="text"
                         value={searchHouseNumber}
                         onChange={(e) => setSearchHouseNumber(e.target.value)}
                         onKeyPress={(e) => e.key === 'Enter' && handleSearchHouse()}
-                        placeholder="Enter house #"
+                        placeholder="ระบุบ้านเลขที่"
                         className="flex-1 bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
                     />
                     <button
                         onClick={handleSearchHouse}
                         className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg font-medium text-sm transition-colors"
                     >
-                        Go
+                        ค้นหา
                     </button>
                 </div>
             </div>
 
             <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Summary (total {houses.length} houses)</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">สรุปภาพรวม ({houses.length} หลัง)</h2>
                 <p className="text-slate-400 text-base">{selectedMonth}</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-3">
                 <div className="bg-emerald-500/10 rounded-xl p-5 border border-emerald-500/30">
-                    <p className="text-emerald-400 text-xs uppercase tracking-wide">Billed</p>
+                    <p className="text-emerald-400 text-xs uppercase tracking-wide">จดแล้ว</p>
                     <p className="text-4xl font-bold text-emerald-400">{billedHouses.length}</p>
                 </div>
                 <div className="bg-red-500/10 rounded-xl p-5 border border-red-500/30">
-                    <p className="text-red-400 text-xs uppercase tracking-wide">Pending</p>
+                    <p className="text-red-400 text-xs uppercase tracking-wide">รอดำเนินการ</p>
                     <p className="text-4xl font-bold text-red-400">{pendingHouses.length}</p>
                 </div>
             </div>
 
             {/* Collection Breakdown */}
             <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 space-y-3">
-                <h3 className="text-white font-semibold text-lg">Collection Breakdown</h3>
+                <h3 className="text-white font-semibold text-lg">สรุปยอดเงิน</h3>
                 <div className="flex justify-between text-base">
-                    <span className="text-amber-400">⚡ Electricity</span>
+                    <span className="text-amber-400">ค่าไฟ</span>
                     <span className="text-white">฿{totalElec.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-base">
-                    <span className="text-cyan-400">💧 Water</span>
+                    <span className="text-cyan-400">ค่าน้ำ</span>
                     <span className="text-white">฿{totalWater.toFixed(2)}</span>
                 </div>
                 <div className="pt-3 border-t border-slate-600 flex justify-between">
-                    <span className="text-emerald-400 font-semibold text-base">Total Collection</span>
+                    <span className="text-emerald-400 font-semibold text-base">ยอดรวมทั้งหมด</span>
                     <span className="text-emerald-400 font-bold text-xl">฿{totalCollection.toFixed(2)}</span>
                 </div>
             </div>
@@ -231,7 +240,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                     : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                     }`}
             >
-                📄 Export PDF
+                บันทึกเป็น PDF
             </button>
 
             {/* Legend */}
@@ -240,11 +249,11 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                 <div className="space-y-2 text-base">
                     <div className="flex items-center gap-2">
                         <div className="w-4 h-4 rounded bg-gradient-to-br from-slate-200 to-slate-300" />
-                        <span className="text-slate-300"> Pending - No reading entered</span>
+                        <span className="text-slate-300"> - รอการบันทึกค่า</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-4 h-4 rounded bg-gradient-to-br from-emerald-500 to-emerald-700" />
-                        <span className="text-slate-300"> Billed - Readings saved</span>
+                        <span className="text-slate-300"> - บันทึกค่าแล้ว</span>
                     </div>
                 </div>
             </div>
@@ -253,24 +262,24 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
             {showAddModal && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999]" style={{ padding: '20px' }}>
                     <div className="bg-slate-900 rounded-3xl border-2 border-indigo-500 shadow-2xl" style={{ width: '500px', padding: '48px' }}>
-                        <h3 className="text-white font-bold mb-8" style={{ fontSize: '32px' }}>Add Billing Period</h3>
+                        <h3 className="text-white font-bold mb-8" style={{ fontSize: '32px' }}>เพิ่มรอบบิลใหม่</h3>
                         <div className="space-y-6">
                             <div>
-                                <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>Month</label>
+                                <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>เดือน</label>
                                 <select
                                     value={newMonth}
                                     onChange={(e) => setNewMonth(e.target.value)}
                                     className="w-full bg-slate-800 border-2 border-slate-600 text-white rounded-xl outline-none focus:ring-4 focus:ring-indigo-500 focus:border-indigo-500"
                                     style={{ padding: '16px 20px', fontSize: '18px' }}
                                 >
-                                    <option value="">Select month</option>
-                                    {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, i) => (
+                                    <option value="">เลือกเดือน</option>
+                                    {['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'].map((month, i) => (
                                         <option key={i + 1} value={i + 1}>{month}</option>
                                     ))}
                                 </select>
                             </div>
                             <div>
-                                <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>Year</label>
+                                <label className="text-slate-200 font-semibold block mb-3" style={{ fontSize: '18px' }}>ปี (ค.ศ.)</label>
                                 <input
                                     type="number"
                                     value={newYear}
@@ -291,7 +300,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                                     className="flex-1 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-all hover:scale-105"
                                     style={{ padding: '18px', fontSize: '18px' }}
                                 >
-                                    Cancel
+                                    ยกเลิก
                                 </button>
                                 <button
                                     onClick={handleAddPeriod}
@@ -299,7 +308,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                                     className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105"
                                     style={{ padding: '18px', fontSize: '18px' }}
                                 >
-                                    ✓ Add Period
+                                    ✓ เพิ่มรอบบิล
                                 </button>
                             </div>
                         </div>
@@ -311,16 +320,16 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
             {showRemoveModal && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999]" style={{ padding: '20px' }}>
                     <div className="bg-slate-900 rounded-3xl border-2 border-red-500 shadow-2xl" style={{ width: '500px', padding: '48px' }}>
-                        <h3 className="text-white font-bold mb-8" style={{ fontSize: '32px' }}>Remove Billing Period</h3>
+                        <h3 className="text-white font-bold mb-8" style={{ fontSize: '32px' }}>ลบรอบบิล</h3>
                         <div className="space-y-2 max-h-96 overflow-y-auto">
                             {[...defaultMonths, ...customPeriods].sort((a, b) => b.value.localeCompare(a.value)).map(period => {
                                 const isDefault = defaultMonths.some(d => d.value === period.value);
                                 return (
                                     <div key={period.value} className="flex items-center justify-between bg-slate-800 p-4 rounded-xl">
                                         <div>
-                                            <span className="text-white text-lg">{period.label}</span>
+                                            <span className="text-white text-lg">{formatMonthThai(period.value)}</span>
                                             {isDefault && (
-                                                <span className="ml-2 text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Default</span>
+                                                <span className="ml-2 text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">ค่าเริ่มต้น</span>
                                             )}
                                         </div>
                                         <button
@@ -338,7 +347,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                                             }}
                                             className="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
                                         >
-                                            Delete
+                                            ลบ
                                         </button>
                                     </div>
                                 );
@@ -349,7 +358,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                                 onClick={() => setShowRemoveModal(false)}
                                 className="w-full bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-bold text-lg"
                             >
-                                Close
+                                ปิด
                             </button>
                         </div>
                     </div>
@@ -361,12 +370,12 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
                 <div className="fixed inset-0 bg-slate-900 z-[9999]">
                     <div className="h-full overflow-hidden flex flex-col">
                         <div style={{ padding: '48px', overflowY: 'auto', flex: 1 }}>
-                            <h3 className="text-white font-bold mb-6" style={{ fontSize: '32px' }}>⚙️ Configure Rates</h3>
+                            <h3 className="text-white font-bold mb-6" style={{ fontSize: '32px' }}>⚙️ ตั้งค่าอัตราค่าบริการ</h3>
 
                             <div className="space-y-8">
                                 {/* Electricity Rates Section */}
                                 <div>
-                                    <h4 className="text-amber-400 font-bold text-xl mb-4">⚡ Electricity Rates</h4>
+                                    <h4 className="text-amber-400 font-bold text-xl mb-4">⚡ อัตราค่าไฟฟ้า</h4>
                                     <div className="space-y-4 bg-slate-800/50 p-4 rounded-xl">
                                         <div className="grid grid-cols-3 gap-3">
                                             <div>
@@ -437,7 +446,7 @@ export default function SummarySidebar({ houses, selectedMonth, onHouseSearch })
 
                                 {/* Water Rates Section */}
                                 <div>
-                                    <h4 className="text-cyan-400 font-bold text-xl mb-4">💧 Water Rates</h4>
+                                    <h4 className="text-cyan-400 font-bold text-xl mb-4">💧 อัตราค่าน้ำประปา</h4>
                                     <div className="space-y-4 bg-slate-800/50 p-4 rounded-xl">
                                         <div className="grid grid-cols-4 gap-3">
                                             <div>

@@ -114,7 +114,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
     const handleSave = async () => {
         if (elecBill && waterBill && !errors.elec && !errors.water) {
             setIsSaving(true);
-            
+
             // Call onSave immediately (synchronously handles UI state update)
             const billData = {
                 elec: parseInt(elecCurr, 10),
@@ -124,7 +124,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                 total: Math.round((elecBill.total + waterBill.total) * 100) / 100,
                 hasImages: !!(elecImage || waterImage || elecImagePreview || waterImagePreview)
             };
-            
+
             try {
                 await onSave(house.id, billData);
             } catch (error) {
@@ -132,10 +132,10 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                 setIsSaving(false);
                 return;
             }
-            
+
             // Close modal immediately for instant UI response
             onClose();
-            
+
             // Upload images in background (fire and forget)
             if (elecImage) {
                 imagesAPI.upload(house.label, selectedMonth, 'electricity', elecImage).catch(e => {
@@ -169,7 +169,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                         onClick={() => fileRef.current?.click()}
                         className="absolute bottom-2 right-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-colors shadow-lg"
                     >
-                        📷 Change
+                        📷 เปลี่ยนรูป
                     </button>
                 </div>
             ) : (
@@ -177,7 +177,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                     onClick={() => fileRef.current?.click()}
                     className="w-full h-16 border-2 border-dashed border-slate-600 rounded-lg flex items-center justify-center gap-2 text-slate-400 hover:border-indigo-500 hover:text-indigo-400 transition-colors"
                 >
-                    📷 Upload Photo
+                    📷 อัปโหลดรูปภาพ
                 </button>
             )}
         </div>
@@ -189,8 +189,8 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                 {/* Header */}
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 flex items-start justify-between">
                     <div>
-                        <h2 className="text-xl font-bold text-white">House #{house.label}</h2>
-                        <p className="text-indigo-200 text-sm">Enter current meter readings • {selectedMonth}</p>
+                        <h2 className="text-xl font-bold text-white">บ้านเลขที่ {house.label}</h2>
+                        <p className="text-indigo-200 text-sm">บันทึกค่ามิเตอร์ประจำเดือน • {selectedMonth}</p>
                     </div>
                     <button
                         onClick={onClose}
@@ -207,35 +207,35 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                     {/* Electricity Section */}
                     <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
                         <h3 className="text-amber-400 font-semibold mb-3 flex items-center gap-2">
-                            <span className="text-xl">⚡</span> Electricity
+                            <span className="text-xl">⚡</span> ไฟฟ้า
                         </h3>
                         <div>
-                            <label className="text-slate-400 text-sm">Current Reading</label>
+                            <label className="text-slate-400 text-sm">ค่ามิเตอร์ปัจจุบัน</label>
                             <div className="relative">
                                 <input
                                     type="number"
                                     value={elecCurr}
                                     onChange={(e) => setElecCurr(e.target.value)}
-                                    placeholder="Enter reading"
+                                    placeholder="ระบุค่า"
                                     className="w-full bg-slate-700 border border-slate-600 rounded-lg pl-3 pr-10 py-2 text-white font-mono text-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
                                 />
-                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">kWh</span>
+                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">หน่วย</span>
                             </div>
                         </div>
                         {errors.elec && <p className="text-red-400 text-sm mt-2">{errors.elec}</p>}
                         {elecBill && (
                             <div className="mt-3 pt-3 border-t border-slate-600 grid grid-cols-2 gap-2 text-sm">
-                                <span className="text-slate-400">Units Used:</span>
+                                <span className="text-slate-400">จำนวนหน่วยที่ใช้:</span>
                                 <span className="text-white text-right">{elecBill.units}</span>
-                                <span className="text-slate-400">Base Cost:</span>
+                                <span className="text-slate-400">ค่าพลังงานไฟฟ้า:</span>
                                 <span className="text-white text-right">฿{elecBill.baseCost.toFixed(2)}</span>
-                                <span className="text-slate-400">Ft Charge:</span>
+                                <span className="text-slate-400">ค่า Ft:</span>
                                 <span className="text-white text-right">฿{elecBill.ftCost.toFixed(2)}</span>
-                                <span className="text-slate-400">Service Fee:</span>
+                                <span className="text-slate-400">ค่าบริการ:</span>
                                 <span className="text-white text-right">฿{elecBill.serviceFee.toFixed(2)}</span>
-                                <span className="text-slate-400">VAT (7%):</span>
+                                <span className="text-slate-400">ภาษีมูลค่าเพิ่ม (7%):</span>
                                 <span className="text-white text-right">฿{elecBill.vat.toFixed(2)}</span>
-                                <span className="text-amber-400 font-semibold">Total:</span>
+                                <span className="text-amber-400 font-semibold">รวมเงิน:</span>
                                 <span className="text-amber-400 font-semibold text-right">฿{elecBill.total.toFixed(2)}</span>
                             </div>
                         )}
@@ -245,33 +245,33 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                     {/* Water Section */}
                     <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
                         <h3 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
-                            <span className="text-xl">💧</span> Water
+                            <span className="text-xl">💧</span> ประปา
                         </h3>
                         <div>
-                            <label className="text-slate-400 text-sm">Current Reading</label>
+                            <label className="text-slate-400 text-sm">ค่ามิเตอร์ปัจจุบัน</label>
                             <div className="relative">
                                 <input
                                     type="number"
                                     value={waterCurr}
                                     onChange={(e) => setWaterCurr(e.target.value)}
-                                    placeholder="Enter reading"
+                                    placeholder="ระบุค่า"
                                     className="w-full bg-slate-700 border border-slate-600 rounded-lg pl-3 pr-10 py-2 text-white font-mono text-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none"
                                 />
-                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">m³</span>
+                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">ลบ.ม.</span>
                             </div>
                         </div>
                         {errors.water && <p className="text-red-400 text-sm mt-2">{errors.water}</p>}
                         {waterBill && (
                             <div className="mt-3 pt-3 border-t border-slate-600 grid grid-cols-2 gap-2 text-sm">
-                                <span className="text-slate-400">Units Used:</span>
+                                <span className="text-slate-400">จำนวนหน่วยที่ใช้:</span>
                                 <span className="text-white text-right">{waterBill.units}</span>
-                                <span className="text-slate-400">Base Cost:</span>
+                                <span className="text-slate-400">ค่าน้ำประปา:</span>
                                 <span className="text-white text-right">฿{waterBill.baseCost.toFixed(2)}</span>
-                                <span className="text-slate-400">Service Fee:</span>
+                                <span className="text-slate-400">ค่าบริการ:</span>
                                 <span className="text-white text-right">฿{waterBill.serviceFee.toFixed(2)}</span>
-                                <span className="text-slate-400">VAT (7%):</span>
+                                <span className="text-slate-400">ภาษีมูลค่าเพิ่ม (7%):</span>
                                 <span className="text-white text-right">฿{waterBill.vat.toFixed(2)}</span>
-                                <span className="text-cyan-400 font-semibold">Total:</span>
+                                <span className="text-cyan-400 font-semibold">รวมเงิน:</span>
                                 <span className="text-cyan-400 font-semibold text-right">฿{waterBill.total.toFixed(2)}</span>
                             </div>
                         )}
@@ -281,7 +281,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                     {/* Grand Total */}
                     {(elecBill || waterBill) && (
                         <div className="bg-gradient-to-r from-emerald-600/20 to-teal-600/20 border border-emerald-500/30 rounded-xl p-4 flex justify-between items-center">
-                            <span className="text-lg text-white font-semibold">Grand Total</span>
+                            <span className="text-lg text-white font-semibold">ยอดรวมสุทธิ</span>
                             <span className="text-2xl font-bold text-emerald-400">฿{grandTotal.toFixed(2)}</span>
                         </div>
                     )}
@@ -292,7 +292,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                             onClick={onClose}
                             className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-semibold transition-colors"
                         >
-                            Cancel
+                            ยกเลิก
                         </button>
                         <button
                             onClick={handleSave}
@@ -302,7 +302,7 @@ export default function MeterEntryModal({ house, onClose, onSave, selectedMonth 
                                 : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                                 }`}
                         >
-                            {isSaving ? 'Saving...' : 'Save Bill'}
+                            {isSaving ? 'กำลังบันทึก...' : 'บันทึกบิล'}
                         </button>
                     </div>
                 </div>

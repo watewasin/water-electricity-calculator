@@ -52,14 +52,14 @@ export default function ConfigPage() {
     }, []);
 
     const handleReset = async () => {
-        if (window.confirm('Are you sure you want to reset to default rates?')) {
+        if (window.confirm('คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตเป็นค่าเริ่มต้น?')) {
             try {
                 await ratesAPI.reset();
-                alert('Rates reset to Thai PEA/PWA defaults');
+                alert('รีเซ็ตอัตราค่าบริการเป็นค่าเริ่มต้นของ กฟภ./กปภ. เรียบร้อยแล้ว');
                 window.location.reload();
             } catch (error) {
                 console.error('Failed to reset rates:', error);
-                alert('Failed to reset rates');
+                alert('ไม่สามารถรีเซ็ตค่าได้');
             }
         }
     };
@@ -93,11 +93,11 @@ export default function ConfigPage() {
 
         try {
             await ratesAPI.update(electricity, water);
-            alert('Custom rates saved! Returning to dashboard...');
+            alert('บันทึกอัตราค่าบริการเรียบร้อยแล้ว! กำลังกลับสู่หน้าหลัก...');
             window.location.hash = '';
         } catch (error) {
             console.error('Failed to save rates:', error);
-            alert('Failed to save rates');
+            alert('ไม่สามารถบันทึกค่าได้');
         }
     };
 
@@ -105,12 +105,12 @@ export default function ConfigPage() {
         <div className="min-h-screen bg-slate-900 text-white">
             {/* Header */}
             <div className="bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center">
-                <h1 className="text-3xl font-bold">Configure Billing Rates</h1>
+                <h1 className="text-3xl font-bold">ตั้งค่าอัตราค่าบริการ</h1>
                 <button
                     onClick={() => window.location.hash = ''}
                     className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 >
-                    Back to Dashboard
+                    กลับไปหน้าหลัก
                 </button>
             </div>
 
@@ -119,11 +119,11 @@ export default function ConfigPage() {
                 <div className="space-y-8">
                     {/* Electricity Rates Section */}
                     <div>
-                        <h2 className="text-amber-400 font-bold text-2xl mb-4">Electricity Rates</h2>
+                        <h2 className="text-amber-400 font-bold text-2xl mb-4">อัตราค่าไฟฟ้า</h2>
                         <div className="space-y-4 bg-slate-800/50 p-6 rounded-xl">
                             <div className="grid grid-cols-3 gap-4">
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Tier 1 (0-150 kWh)</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ขั้นที่ 1 (0-150 หน่วย)</label>
                                     <input
                                         type="number"
                                         step="0.0001"
@@ -133,7 +133,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Tier 2 (151-400 kWh)</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ขั้นที่ 2 (151-400 หน่วย)</label>
                                     <input
                                         type="number"
                                         step="0.0001"
@@ -143,7 +143,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Tier 3 (&gt;400 kWh)</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ขั้นที่ 3 (&gt;400 หน่วย)</label>
                                     <input
                                         type="number"
                                         step="0.0001"
@@ -155,7 +155,7 @@ export default function ConfigPage() {
                             </div>
                             <div className="grid grid-cols-3 gap-4">
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Ft Rate</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ค่า Ft</label>
                                     <input
                                         type="number"
                                         step="0.0001"
@@ -165,7 +165,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Service Fee</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ค่าบริการรายเดือน</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -175,7 +175,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">VAT Multiplier</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ภาษีมูลค่าเพิ่ม (ตัวคูณ)</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -190,11 +190,11 @@ export default function ConfigPage() {
 
                     {/* Water Rates Section */}
                     <div>
-                        <h2 className="text-cyan-400 font-bold text-2xl mb-4">Water Rates</h2>
+                        <h2 className="text-cyan-400 font-bold text-2xl mb-4">อัตราค่าน้ำประปา</h2>
                         <div className="space-y-4 bg-slate-800/50 p-6 rounded-xl">
                             <div className="grid grid-cols-4 gap-4">
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">0-10 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">0-10 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -204,7 +204,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">11-20 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">11-20 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -214,7 +214,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">21-30 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">21-30 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -224,7 +224,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">31-50 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">31-50 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -236,7 +236,7 @@ export default function ConfigPage() {
                             </div>
                             <div className="grid grid-cols-4 gap-4">
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">51-80 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">51-80 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -246,7 +246,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">81-100 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">81-100 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -256,7 +256,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">101-300 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">101-300 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -266,7 +266,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">&gt;300 m³</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">&gt;300 ลบ.ม.</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -278,7 +278,7 @@ export default function ConfigPage() {
                             </div>
                             <div className="grid grid-cols-3 gap-4">
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">Service Fee</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ค่าบริการรายเดือน</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -288,7 +288,7 @@ export default function ConfigPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-slate-300 block mb-2 font-semibold">VAT Multiplier</label>
+                                    <label className="text-slate-300 block mb-2 font-semibold">ภาษีมูลค่าเพิ่ม (ตัวคูณ)</label>
                                     <input
                                         type="number"
                                         step="0.01"
@@ -308,13 +308,13 @@ export default function ConfigPage() {
                         onClick={handleReset}
                         className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold text-lg transition-colors"
                     >
-                        Reset to Defaults
+                        คืนค่าเริ่มต้น
                     </button>
                     <button
                         onClick={handleSave}
                         className="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white rounded-xl font-bold text-lg transition-colors"
                     >
-                        Save Rates
+                        บันทึกการตั้งค่า
                     </button>
                 </div>
             </div>
